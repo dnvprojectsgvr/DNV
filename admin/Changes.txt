@@ -1,0 +1,39 @@
+* Dashbord Loan Amount 1
+* Document Expiry Change Data Type 2 Inform Me + Upload
+* Sorting in Driver + With Filter
+- By Name
+- Lic Exp Date
+- Rating
+* Non Editable Combo for Stencil No. in Add Multiple Tyre 5 Infrom Me + Upload
+* Data Validation in Add Multiple Tyre 4
+* Add Remarks Column in Add Multiple Tyre 3 
+* Add Employee Fields 6 Inform Me + Upload
+
+---------------------------------
+Check driver unassigned 
+Employee Click on Call   @
+Add Daily KM Vehicle Wise @
+Check Daily KM Show Statement 
+All Date Time Pickers to Date Typing Indian and Default Current Date
+Vehicle Update Issue @
+Employee Leave show in days @
+Employee ID Proff Saving @
+Employee Blood Group Drop Down @
+Vehicle wheels Selected @
+Score Sorting of Driver
+Empoyee Rating Go from Bad to Great
+EveryWare SHow KM @
+
+Add loan reports drop down in left menu @
+"Check Laon EMI"  rename it to "Upcomming Instalments" @
+Loan Monthly Statement @
+Ending Loan Statement @
+
+Daily KM Drop Down @
+- Add KM @
+- Check KM @
+
+
+Driver search by driver name
+vehicle Puc Update
+

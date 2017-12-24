@@ -1,0 +1,13 @@
+<?php
+	session_start();
+if(isset($_SESSION['studentid']))
+{
+	unset($_SESSION['studentid']);
+}	
+	if(isset($_SESSION['facultyid']))
+{
+	unset($_SESSION['facultyid']);
+}
+	session_destroy();
+	header('location:index.php');
+?>

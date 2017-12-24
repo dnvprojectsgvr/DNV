@@ -1,0 +1,27 @@
+Date Typing in all areas
+Assigned Tyres List Not Opening @
+In loan instalment show previous instalment in red color @
+In Vehicle document expiry if i select only all and submit nothing gets filtered @
+Sorting driver by rating 
+Preventive maintenance shows error  @
+Vehicle Details (GJ12AW-1530) tyres show error @
+why showing ( Present Running Km :) in tyre detail @
+driver name and other search options
+in do maintenance label shows (Assign Maintenance) @
+In maintenance statement label shows (Check Maintenance)@
+Item Master View Details shows error @
+In Do maintenance add service provider name and amount should ask @
+employee name and other search options
+Employee leves showing error and pagination problem @
+Filter in view employee
+typable select maintenance list in do maintenance @
+Ending loan statement Bad View
+Loan Monthly Statement - work not done 
+Make KM Statement check from date to date @ 
+test all modules with dummy entries
+no duplicate stencil no. @
+at assign multiple tyre error show on duplicate entry of already assigned tyre @
+add in document Exp. @
+insurance@
+calibration@
+explosive@

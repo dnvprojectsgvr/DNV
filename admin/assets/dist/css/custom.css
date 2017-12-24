@@ -1,0 +1,22 @@
+.ci_pagination
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	font-size: 14px;
+}
+.ci_pagination a
+{
+	padding:5px 10px 5px 10px;
+	border:1px solid #958e8e;
+	color: #333;
+	border-collapse: collapse;
+}
+.ci_pagination a.active
+{
+	padding:5px 10px 5px 10px;
+	border:1px solid #958e8e;
+	color: #fff;
+	background: #3c8dbc;
+	border-collapse: collapse;
+}
