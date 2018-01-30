@@ -537,7 +537,7 @@ $secal=strtolower($seca);
 <script src="js/wow.min.js"></script>
 <script src="js/functions.js"></script>
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/student_reg.js"></script>
 <script src="js/userid_student.js"></script>
 

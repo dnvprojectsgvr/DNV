@@ -22,9 +22,10 @@ class Admin extends CI_Controller {
 		$data['title'] = "Dashboard";
 
 		// $data['driver'] = $this->db->get('drivers')->num_rows(); //total drivers
-		// $data['vehicle'] = $this->db->get_where('vehicle_details', array('status' => 'ACTIVE'))->num_rows();
-		//$data['vehicle'] = $this->db->get('vehicle_details')->num_rows(); //total Vehicle
-		// $data['tyre'] = $this->db->get('tyre_stock')->num_rows(); //total Tyres
+		$data['faculty_details'] = $this->db->get_where('faculty_details', array('status' => 'ACTIVE'))->num_rows();
+		$data['faculty_details'] = $this->db->get('faculty_details')->num_rows(); //total Vehicle
+		$data['student_details'] = $this->db->get_where('student_details', array('status' => 'ACTIVE'))->num_rows();
+		$data['student_details'] = $this->db->get('student_details')->num_rows(); //total Tyres
 
 		// $data['total_assign_driver'] = $this->db->get_where('assign_vehicle', array('status' => 'ACTIVE'))->num_rows();
 		

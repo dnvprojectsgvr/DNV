@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2017 at 04:13 AM
+-- Generation Time: Jan 30, 2018 at 05:30 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dnv`
 --
-CREATE DATABASE IF NOT EXISTS `dnv` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `dnv`;
 
 -- --------------------------------------------------------
 
@@ -121,6 +119,26 @@ INSERT INTO `content` (`content_id`, `title`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `course_details`
+--
+
+CREATE TABLE `course_details` (
+  `id` int(10) NOT NULL,
+  `course_name` varchar(45) NOT NULL,
+  `stream_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_details`
+--
+
+INSERT INTO `course_details` (`id`, `course_name`, `stream_id`) VALUES
+(1, 'bca', 1),
+(2, 'bba', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `event`
 --
 
@@ -132,6 +150,74 @@ CREATE TABLE `event` (
   `date_start` varchar(100) NOT NULL,
   `date_end` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_criteria_details`
+--
+
+CREATE TABLE `faculty_criteria_details` (
+  `id` int(10) NOT NULL,
+  `criteria_name` varchar(45) NOT NULL,
+  `criteria_marks` int(5) NOT NULL,
+  `faculty_sub_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty_criteria_details`
+--
+
+INSERT INTO `faculty_criteria_details` (`id`, `criteria_name`, `criteria_marks`, `faculty_sub_id`) VALUES
+(1, 'assignement', 10, 1),
+(2, 'viva', 30, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_details`
+--
+
+CREATE TABLE `faculty_details` (
+  `id` int(10) NOT NULL,
+  `faculty_id` varchar(30) NOT NULL,
+  `f_name` varchar(45) NOT NULL,
+  `m_name` varchar(45) NOT NULL,
+  `l_name` varchar(45) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `father_name` varchar(100) NOT NULL,
+  `gender` enum('male','female','other') NOT NULL,
+  `mob_no` bigint(11) NOT NULL,
+  `email_id` varchar(255) NOT NULL,
+  `dob` date NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'ACTIVE'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty_details`
+--
+
+INSERT INTO `faculty_details` (`id`, `faculty_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `dob`, `status`) VALUES
+(2, 'ramesh12', 'ramesh', '', 'chouhan', 'ramesh  chouhan', 'suresh', 'male', 9832748978, 'ramesh@gmail.com', '1999-07-05', 'ACTIVE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_subjects`
+--
+
+CREATE TABLE `faculty_subjects` (
+  `id` int(10) NOT NULL,
+  `faculty_id` varchar(60) NOT NULL,
+  `subject_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty_subjects`
+--
+
+INSERT INTO `faculty_subjects` (`id`, `faculty_id`, `subject_id`) VALUES
+(1, 'ramesh12', 1);
 
 -- --------------------------------------------------------
 
@@ -408,16 +494,17 @@ CREATE TABLE `student_details` (
   `admin_year` year(4) NOT NULL,
   `roll_no` int(3) NOT NULL,
   `course` varchar(20) NOT NULL,
-  `dob` date NOT NULL
+  `dob` date NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'ACTIVE'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_details`
 --
 
-INSERT INTO `student_details` (`id`, `student_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `admin_year`, `roll_no`, `course`, `dob`) VALUES
-(3, '2010bca20', 'ramesh', 'singh', 'chouhan', 'ramesh singh chouhan', 'suresh', 'male', 7987897897, 'ramesh@gmail.com', 2010, 20, 'BCA', '2007-07-01'),
-(21, '2010bca21', 'dinesh', 'singh', 'chouhan', 'dinesh singh chouhan', 'suresh', 'male', 9847389753, 'dinesh@gmail.com', 2010, 21, 'BCA', '0000-00-00');
+INSERT INTO `student_details` (`id`, `student_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `admin_year`, `roll_no`, `course`, `dob`, `status`) VALUES
+(3, '2010bca20', 'ramesh', 'singh', 'chouhan', 'ramesh singh chouhan', 'suresh', 'male', 7987897897, 'ramesh@gmail.com', 2010, 20, 'BCA', '2007-07-01', 'ACTIVE'),
+(21, '2010bca21', 'dinesh', 'singh', 'chouhan', 'dinesh singh chouhan', 'suresh', 'male', 9847389753, 'dinesh@gmail.com', 2010, 21, 'BCA', '0000-00-00', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -485,6 +572,35 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
+-- Indexes for table `course_details`
+--
+ALTER TABLE `course_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `stream_id` (`stream_id`);
+
+--
+-- Indexes for table `faculty_criteria_details`
+--
+ALTER TABLE `faculty_criteria_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `faculty_sub_id` (`faculty_sub_id`);
+
+--
+-- Indexes for table `faculty_details`
+--
+ALTER TABLE `faculty_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `faculty_id` (`faculty_id`);
+
+--
+-- Indexes for table `faculty_subjects`
+--
+ALTER TABLE `faculty_subjects`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `faculty_id` (`faculty_id`),
+  ADD KEY `subject_id` (`subject_id`);
+
+--
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
@@ -546,6 +662,26 @@ ALTER TABLE `users_details`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT for table `course_details`
+--
+ALTER TABLE `course_details`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `faculty_criteria_details`
+--
+ALTER TABLE `faculty_criteria_details`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `faculty_details`
+--
+ALTER TABLE `faculty_details`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `faculty_subjects`
+--
+ALTER TABLE `faculty_subjects`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `news`
 --
