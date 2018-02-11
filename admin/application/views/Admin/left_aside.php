@@ -17,14 +17,14 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url('assets/dist/img/f000-icon.png'); ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $this->session->login_data['username']; ?></span>
+              <span class="hidden-xs"><?php echo $this->session->login_data['user_id']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
                 <img src="<?php echo base_url('assets/dist/img/dfd1-icon.png'); ?>" class="img-circle" alt="User Image">
                 <p>
-                  <?php echo $this->session->login_data['username']; ?>
-                  <small><?php echo $this->session->login_data['username']; ?></small>
+                  <?php echo $this->session->login_data['user_id']; ?>
+                  <small><?php echo $this->session->login_data['user_id']; ?></small>
                 </p>
               </li>
               <li class="user-footer">
@@ -105,8 +105,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Faculty/add'); ?>"><i class="fa fa-user-plus"></i>Add Faculty</a></li>
-            <li><a href="<?php echo site_url('Faculty'); ?>"><i class="ion ion-clipboard"></i>View Faculty</a></li>
+            <li><a href="<?php echo site_url('admin/Faculty/test'); ?>"><i class="fa fa-user-plus"></i>Add Faculty</a></li>
+            <li><a href="<?php echo site_url('admin/Faculty'); ?>"><i class="ion ion-clipboard"></i>View Faculty</a></li>
+            <li><a href="<?php echo site_url('admin/Faculty/leaves'); ?>"><i class="ion ion-clipboard"></i>Faculty Leave</a></li>
             <li class="treeview">
           <a href="#">
             <i class="fa fa-bullseye"></i> <span>Teacher Reports</span>
@@ -173,6 +174,7 @@
             <li><a href="<?php echo site_url('Admin/ckeck_loan'); ?>"><i class="fa fa-window-close-o"></i>View Notice</a></li>
           </ul>
         </li>
+        <li><a href="<?php echo site_url('Faculty/leaves'); ?>"><i class="ion ion-clipboard"></i>Faculty Leave</a></li>
           </ul>
         </li>
       </ul>

@@ -30,15 +30,15 @@
         <div class="col-md-3">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo $student_details; ?></h3>
+              <h3><?php  echo $student; ?></h3>
               <p>Students</p>
             </div>
             <div class="icon">
-              <a href="<?php echo site_url('Student'); ?>">
-                <i class="ion ion-ios-people" style="color: #00a3cb;"></i>
+              <a href="<?php // echo site_url('members/amenity_members'); ?>">
+                <i class="fa fa-bandcamp" style="color: #00a3cb;"></i>
               </a>
             </div>
-            <a href="<?php echo site_url('Student'); ?>" class="small-box-footer">
+            <a href="<?php // echo site_url('Admin/check_km'); ?>" class="small-box-footer">
               View Students <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
@@ -64,15 +64,15 @@
        <div class="col-md-3">
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3><?php echo $faculty_details; ?></h3>
+            <h3><?php echo $faculty; ?></h3>
             <p>Faculty's</p>
           </div>
           <div class="icon">
-            <a href="<?php echo site_url('Faculty/add'); ?>">
+            <a href="<?php //echo site_url('vehicle/add'); ?>">
               <i class="fa fa-user" style="color:rgb(218, 140, 16)"></i>
             </a>
           </div>
-          <a class="small-box-footer"  href="<?php echo site_url('Faculty'); ?>">
+          <a class="small-box-footer"  href="<?php //echo site_url('vehicle'); ?>">
             Faculty List <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
@@ -85,9 +85,9 @@
             <p>Events</p>
           </div>
           <div class="icon">
-            <a href="<?php echo site_url('#/#'); ?>"><i class="ion ion-bank" style="color: #c64333;"></i></a>
+            <a href="<?php //echo site_url('driver/add'); ?>"><i class="ion ion-bank" style="color: #c64333;"></i></a>
           </div>
-          <a href="<?php echo site_url('#/#'); ?>" class="small-box-footer">
+          <a href="<?php// echo site_url('driver/amenity_members'); ?>" class="small-box-footer">
            View Events <i class="fa fa-arrow-circle-right"></i>
          </a>
 

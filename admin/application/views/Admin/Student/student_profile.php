@@ -3,7 +3,7 @@
         <div class="form-group">
             <label><i class="fa fa-home"></i> Student Name:</label>
             <div class="form-line">
-                <?php echo nl2br($student_details[1]['full_name']); ?>
+                <?php echo nl2br($student_details[0]['full_name']); ?>
             </div>
         </div>
     </div>

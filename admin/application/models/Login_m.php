@@ -6,21 +6,21 @@ class Login_m extends CI_Model {
             parent::__construct();
         }
 
-        function login($username, $password)
+        function login($user_id, $password)
         {   
             $this->db->select('*'); 
-            $this->db->from('admin');
-            $this->db->where(array("username" => $username, "password" => $password));
+            $this->db->from('users_details');
+            $this->db->where(array("user_id" => $user_id, "password" => $password));
             if($this->db->count_all_results()==1)
             {
                 $this->db->select('*'); 
-                $this->db->from('admin');
-                $this->db->where(array("username" => $username, "password" => $password));
+                $this->db->from('users_details');
+                $this->db->where(array("user_id" => $user_id, "password" => $password, "status" => "ACTIVE"));
                 $login_data = $this->db->get()->result_array(); 
-                if($login_data[0]['login_type'] == 'employee')
-                {
-                    $login_data[0]['employee_id'] = $this->general_m->get_one_value('employee', 'id', array('username' => $login_data[0]['username']));
-                }
+                // if($login_data[0]['login_type'] == 'faculty')
+                // {
+                //     $login_data[0]['employee_id'] = $this->general_m->get_one_value('employee', 'id', array('user_id' => $login_data[0]['user_id']));
+                // }
                 $this->session->login_data = $login_data[0]; 
                 return "true";
             }
@@ -30,14 +30,14 @@ class Login_m extends CI_Model {
             }
         }
 
-        function registration($detail)
+     /*   function registration($detail)
         { 
             $this->db->select('*'); 
             $this->db->from('devise_user_details');
             $this->db->where(array("user_name" => $detail['user_name']));
             if($this->db->count_all_results()==1)
             {
-                return "username";
+                return "user_id";
             }  
             $this->db->select('*'); 
             $this->db->from('devise_user_details');
@@ -48,7 +48,7 @@ class Login_m extends CI_Model {
             }
             $this->db->insert('devise_user_details', $detail);
             return "success";
-        }
+        }*/
 
 }
 ?>
