@@ -72,7 +72,7 @@
               <i class="fa fa-user" style="color:rgb(218, 140, 16)"></i>
             </a>
           </div>
-          <a class="small-box-footer"  href="<?php //echo site_url('vehicle'); ?>">
+          <a class="small-box-footer"  href="<?php echo site_url('admin/faculty'); ?>">
             Faculty List <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>

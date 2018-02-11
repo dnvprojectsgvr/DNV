@@ -1,0 +1,495 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fac",
+				"faculty_id"
+			],
+			[
+				"old_u",
+				"old_user_id"
+			],
+			[
+				"faculty_",
+				"faculty_leaves"
+			],
+			[
+				"login",
+				"login_data"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
+				"fa",
+				"faculty_id"
+			],
+			[
+				"buss",
+				"business"
+			],
+			[
+				"cus",
+				"customers"
+			],
+			[
+				"custo",
+				"customize"
+			],
+			[
+				"Cu",
+				"customer"
+			],
+			[
+				"comm",
+				"Commerce"
+			],
+			[
+				"mana",
+				"Management"
+			],
+			[
+				"conne",
+				"Connection"
+			],
+			[
+				"Comm",
+				"Commerce"
+			],
+			[
+				"data",
+				"Database"
+			],
+			[
+				"provi",
+				"provide"
+			],
+			[
+				"Eect",
+				"electronic"
+			],
+			[
+				"Pro",
+				"providers"
+			],
+			[
+				"Ser",
+				"services"
+			],
+			[
+				"ser",
+				"service"
+			],
+			[
+				"serv",
+				"services"
+			],
+			[
+				"mang",
+				"Management"
+			],
+			[
+				"Int",
+				"intelligent"
+			],
+			[
+				"int",
+				"Internet"
+			],
+			[
+				"Inf",
+				"information"
+			],
+			[
+				"dev",
+				"Development"
+			],
+			[
+				"A",
+				"Apache"
+			],
+			[
+				"web",
+				"website"
+			],
+			[
+				"devl",
+				"Develop"
+			],
+			[
+				"da",
+				"Database"
+			],
+			[
+				"stu",
+				"Students"
+			],
+			[
+				"foll",
+				"follow"
+			],
+			[
+				"bas",
+				"Basic"
+			],
+			[
+				"man",
+				"Management"
+			],
+			[
+				"Se",
+				"Server"
+			],
+			[
+				"eva",
+				"Evaluate"
+			],
+			[
+				"se",
+				"services"
+			],
+			[
+				"ev",
+				"Environmentally"
+			],
+			[
+				"S",
+				"Software"
+			],
+			[
+				"Et",
+				"Ethica"
+			],
+			[
+				"com",
+				"COMPUTING"
+			],
+			[
+				"ex",
+				"Explain"
+			],
+			[
+				"res",
+				"resourcrs"
+			],
+			[
+				"sca",
+				"Scanning"
+			],
+			[
+				"recc",
+				"Reconnaissance"
+			],
+			[
+				"en",
+				"enemy"
+			],
+			[
+				"Seri",
+				"series"
+			],
+			[
+				"sys",
+				"system"
+			],
+			[
+				"incl",
+				"include"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "re",
+		"selected_items":
+		[
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Advanced Install Package"
+			]
+		],
+		"width": 412.0
+	},
+	"console":
+	{
+		"height": 94.0,
+		"history":
+		[
+			"fuck you",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/DNV"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/next_task.java",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/dashboard.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/admin/Admin.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/left_aside.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/admin/Faculty.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/leaves.php",
+		"/C/xampp/htdocs/new_fp_nirav/application/views/Admin/Employee/leaves.php",
+		"/D/BACKUP 15092017/Xampp/new_fp_nirav/application/controllers/Employee.php",
+		"/C/xampp/htdocs/DNV/admin/application/models/General_m.php",
+		"/C/xampp/htdocs/DNV/admin/application/models/Faculty_m.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/faculty/Dashboard.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/Login.php",
+		"/C/xampp/htdocs/new_fp_nirav/application/controllers/Login.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Faculty/Leaves/add.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Faculty/Leaves/index.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Faculty/Leaves/edit.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Faculty/left_aside.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/faculty/Leaves.php",
+		"/C/xampp/htdocs/DNV/admin/application/models/Login_m.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/stu/Dashboard.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/student/Dashboard.php",
+		"/C/xampp/htdocs/DNV/admin/application/models/Admin_m.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/Admin.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Faculty/dashboard.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/login.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/test",
+		"/C/xampp/htdocs/DNV/admin/application/views/includes/header.php",
+		"/C/xampp/htdocs/DNV/admin/application/config/routes.php",
+		"/C/xampp/htdocs/DNV/admin/application/config/config.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/User.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/dashboard.php",
+		"/C/xampp/htdocs/new_fp_nirav/application/controllers/Employee.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/Faculty.php",
+		"/C/xampp/htdocs/DNV/about.php",
+		"/C/xampp/htdocs/DNV/admin/application/libraries/BaseController.php",
+		"/C/xampp/htdocs/DNV/admin/application/config/constants.php",
+		"/C/xampp/htdocs/DNV/admin/application/models/User_model.php",
+		"/C/xampp/htdocs/DNV/admin/application/models/Login_model.php",
+		"/C/xampp/htdocs/DNV/admin/application/config/database.php",
+		"/C/xampp/htdocs/DNV/admin/application/models/login/Login_model.php",
+		"/C/xampp/htdocs/Multi_user/application/controllers/Login.php",
+		"/C/xampp/htdocs/Multi_user/application/views/login/login.php",
+		"/C/xampp/htdocs/Multi_user/application/models/login/Login_model.php",
+		"/C/xampp/htdocs/admin/application/views/login.php",
+		"/C/xampp/htdocs/admin/application/controllers/Login.php",
+		"/D/collage data/DNV/admin/application/views/login.php",
+		"/C/xampp/htdocs/admin/application/config/config.php",
+		"/C/xampp/htdocs/portal/application/views/includes/header.php",
+		"/C/xampp/htdocs/portal/application/config/config.php",
+		"/C/xampp/htdocs/portal/application/views/users.php",
+		"/C/xampp/htdocs/portal/application/views/dashboard.php",
+		"/C/xampp/htdocs/portal/application/controllers/student.php",
+		"/C/xampp/htdocs/portal/application/controllers/Test.php",
+		"/C/xampp/htdocs/portal/application/config/routes.php",
+		"/C/xampp/htdocs/portal/application/controllers/Student/add.php",
+		"/D/collage data/DNV/admin/application/config/config.php",
+		"/D/collage data/DNV/admin/application/views/Admin/left_aside.php",
+		"/C/xampp/htdocs/portal/application/config/database.php",
+		"/C/xampp/htdocs/portal/application/views/login.php",
+		"/C/xampp/htdocs/DNV/portal/application/views/login.php",
+		"/C/xampp/htdocs/DNV/portal/application/config/database.php",
+		"/C/xampp/htdocs/DNV/Front_End/cias/application/config/routes.php",
+		"/C/xampp/htdocs/cias/application/controllers/Login.php",
+		"/C/xampp/htdocs/cias/application/controllers/User.php",
+		"/C/xampp/htdocs/cias/application/models/User_model.php",
+		"/C/xampp/htdocs/cias/application/config/config.php",
+		"/C/xampp/htdocs/cias/application/views/access.php",
+		"/C/xampp/htdocs/cias/application/views/includes/footer.php",
+		"/C/xampp/htdocs/cias/application/config/autoload.php",
+		"/C/xampp/htdocs/cias/application/views/users.php",
+		"/C/xampp/htdocs/DNV/Front_End/js/userid_student.js",
+		"/C/xampp/htdocs/DNV/Front_End/js/ajax.php",
+		"/C/xampp/htdocs/DNV/Front_End/ajax.php",
+		"/C/xampp/htdocs/DNV/Front_End/db_conn.php",
+		"/C/xampp/htdocs/result_system_orignal/student_reg.php",
+		"/C/xampp/htdocs/DNV/Front_End/student_reg.php",
+		"/C/xampp/htdocs/DNV/Front_End/js/student_reg.js",
+		"/C/xampp/htdocs/DNV/Student/dbConnector.php",
+		"/D/college/Sem 6/CyberCrime/advantageofcybercrime.java",
+		"/C/xampp/htdocs/college_portal/login_db.php",
+		"/C/xampp/htdocs/college_portal/index.php",
+		"/C/Users/Banna/AppData/Local/Temp/Rar$DIa11984.25124/noticeboard.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/faculty_edit.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/faculty_profile.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/detail.php",
+		"/D/Sharing/fleetpush_loan/application/views/Admin/dashboard.php",
+		"/C/Users/Banna/AppData/Local/Temp/Rar$DIa11984.26516/Admin.php",
+		"/C/xampp/htdocs/EduSec-master/views/national-holidays/create.php",
+		"/C/xampp/htdocs/EduSec-master/views/site/user-dashboard.php",
+		"/C/xampp/htdocs/EduSec-master/controllers/LanguagesController.php",
+		"/C/xampp/htdocs/EduSec-master/index.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/student_edit.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/index.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/student.php",
+		"/C/xampp/htdocs/pencilcrunch-master/application/config/database.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/add.php",
+		"/C/xampp/htdocs/result_system_orignal/faculty_reg.php",
+		"/C/xampp/htdocs/WPSchoolPress/index.php",
+		"/C/xampp/htdocs/College-Management-System-master/College-Management-System-master/conection/connect.php",
+		"/C/xampp/htdocs/DNV/admin/assets/plugins/faculty/userid_faculty.js",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Student/detail.php",
+		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Student/student_profile.php",
+		"/C/xampp/htdocs/DNV/admin/application/controllers/Ajax.php",
+		"/C/xampp/htdocs/icampus2/classes/Database.class.php",
+		"/C/xampp/htdocs/icampus2/classes/html_form.class.php",
+		"/D/college/Sem 6/EC/copyright",
+		"/D/college/Sem 6/EC/juridiction",
+		"/D/college/Sem 6/CyberCrime/1",
+		"/D/college/Sem 6/EC/git",
+		"/C/xampp/htdocs/icampus2/common.php",
+		"/D/college/Sem 6/EC/2",
+		"/D/college/Sem 6/CyberCrime/chapter 2.php",
+		"/D/college/Sem 6/EC/1"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 49.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 28.0
+	},
+	"pinned_build_system": "",
+	"project": "FinalYearProject.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

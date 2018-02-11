@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Faculty extends CI_Controller {
+class FacultyLeave extends CI_Controller {
 
 	function __construct() 
 	{
@@ -19,22 +19,22 @@ class Faculty extends CI_Controller {
 
 	public function index()
 	{   
-		$data['title'] = "Add Faculty";
-		$this->db->select('id,vehicle_no,model,no_wheels, status');
-		$this->db->from('vehicle_details');
+		$data['title'] = "View Faculty";
+		$this->db->select('*');
+		$this->db->from('faculty_details');
 		$this->db->where('status', 'ACTIVE');
-		$data['vehicle_details'] = $this->db->get()->result_array();
-		$this->load->view('Admin/Employee/index', $data);
+		$data['faculty_details'] = $this->db->get()->result_array();
+		$this->load->view('Admin/faculty/index', $data);
 	}
 
   	public function leaves($faculty_id = 'all', $from_date = 'all', $to_date = 'all', $status = 'all', $sort_column = 'all', $sort_order = 'all', $page_no = 0)
   	{
-  		$data['url'] = site_url('faculty/leaves/'.$faculty_id.'/'.$from_date.'/'.$to_date.'/'.$status);
+  		$data['url'] = site_url('faculty/FacultyLeave/leaves/'.$faculty_id.'/'.$from_date.'/'.$to_date.'/'.$status);
 
   		//REDIRECT IF FILTER IS ENABLED
   		if($this->input->post('submit'))
   		{
-  			$url = 'admin/faculty/leaves/'.$this->input->post('faculty_id').'/'.$this->input->post('from_date').'/'.$this->input->post('to_date').'/'.$this->input->post('status');
+  			$url = 'admin/faculty/FacultyLeave/leaves/'.$this->input->post('faculty_id').'/'.$this->input->post('from_date').'/'.$this->input->post('to_date').'/'.$this->input->post('status');
   			redirect($url);
   		}
 
@@ -119,7 +119,7 @@ class Faculty extends CI_Controller {
 	{
 		$this->db->where('faculty_leaveid', $faculty_leaveid);
 		$this->db->update('faculty_leaves', array('status' => $status));
-		redirect('admin/faculty/leaves');
+		redirect('admin/Faculty/FacultyLeave/leaves');
 
   	}
 

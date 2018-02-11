@@ -1,7 +1,0 @@
-DATABASE CHANGES :
-add `remarks` column in  `assign_tyre` 
-
-Database in attachment
-
-only (.xls) file allowed while import
-sample  file in attachment

@@ -47,12 +47,12 @@
                   </select>
                 </div>
                 <div class="col-md-3">
-                  <label>From Date</label>
-                  <input type="text" class="form-control datepicker" name="from_date" required="required" value="<?php echo $from_date; ?>" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
+                  <label>Date</label>
+                  <input type="text" class="form-control datepicker" name="from_date" required="required" value="<?php echo $date; ?>" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
                 </div>
                 <div class="col-md-3">
-                  <label>To Date</label>
-                  <input type="text" class="form-control datepicker" name="to_date" required="required" value="<?php echo $to_date; ?>" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
+                  <label>Subject</label>
+                  <input type="text" class="form-control" name="subject" required="required" value="<?php echo $subject; ?>">
                 </div>
                 <div class="col-md-3 form-group">
                   <label>Status</label>
@@ -74,56 +74,50 @@
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>Leave ID <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'faculty_leaveid'); ?></th>
+                <th>Report ID <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'id'); ?></th>
                 <th>Faculty Name</th>
-                <th>From Date <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'leave_fromdate'); ?></span></a></th>
-                <th>To Date <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'leave_todate'); ?></span></a></th>
-                <th>Days</th>
-                <th>Reason</th>
+                <th>Date <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'date'); ?></span></a></th>
+                <th>Subject <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'subject'); ?></span></a></th>
+                <th>No. of Student</th>
+                <th>Note</th>
                 <th>Requested Time</th>
                 <th>Status <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'status'); ?></span></a></th>
                 <th>Action</th>     
               </tr>
             </thead>
             <tbody>
-            <?php for($i=0; $i<count($requests); $i++) { ?>
+            <?php for($i=0; $i<count($reports); $i++) { ?>
               <tr>
-                <td><?php echo $requests[$i]['faculty_leaveid']; ?></td>
-                <td><?php echo $this->general_m->get_one_value('faculty_details', 'full_name' ,array('faculty_id' => $requests[$i]['faculty_id'])); ?></td>
-                <td><?php echo $requests[$i]['leave_fromdate']; ?></td>
-                <td><?php echo $requests[$i]['leave_todate']; ?></td>
-                <td><?php 
-                    $start = $requests[$i]['leave_fromdate'];
-                    $endd = $requests[$i]['leave_todate'];
-                                        $date1 = new DateTime($start);
-                                        $date2 = new DateTime($endd);
-                                        $diff = $date1->diff($date2);
-
-                                        echo  $diff->d." Days "?></td>
-                <td><?php echo nl2br($requests[$i]['leave_reason']); ?></td>
-                <td><?php echo $requests[$i]['requested_datetime']; ?></td>
-                <td><?php echo $requests[$i]['status']; ?></td>
+                <td><?php echo $reports[$i]['id']; ?></td>
+                <td><?php echo $this->general_m->get_one_value('faculty_details', 'full_name' ,array('faculty_id' => $reports[$i]['faculty_id'])); ?></td>
+                <td><?php echo $reports[$i]['date']; ?></td>
+                <td><?php echo $reports[$i]['subject']; ?></td>
+                <td><?php echo $reports[$i]['no_of_pre_student']; ?></td>
+                <td><?php echo nl2br($reports[$i]['note']); ?></td>
+                <td><?php echo $reports[$i]['reporttime']; ?></td>
+                <td><?php echo $reports[$i]['status']; ?></td>
                 <td align="center">
 
-                  <?php if($requests[$i]['status'] != 'pending') { ?>
-                  <a href="<?php echo site_url('admin/faculty/FacultyLeave/leave_status/pending/'.$requests[$i]['faculty_leaveid']); ?>" title="Make it Pending again." class="btn btn-warning btn-xs">
+                  <?php if($reports[$i]['status'] != 'pending') { ?>
+                  <a href="<?php echo site_url('admin/faculty/lecturereport/report_status/pending/'.$reports[$i]['id']); ?>" title="Make it Pending again." class="btn btn-warning btn-xs">
                     <i class="fa fa-hourglass"></i>
                   </a> 
                   <?php } ?>
-                  <?php if($requests[$i]['status'] != 'approved') { ?>
-                  <a href="<?php echo site_url('admin/Faculty/FacultyLeave/leave_status/approved/'.$requests[$i]['faculty_leaveid']); ?>" title="Approve" class="btn btn-success btn-xs">
+                  <?php if($reports[$i]['status'] != 'approved') { ?>
+                  <a href="<?php echo site_url('admin/Faculty/lecturereport/report_status/approved/'.$reports[$i]['id']); ?>" title="Approve" class="btn btn-success btn-xs">
                     <i class="fa fa-thumbs-up"></i>
                   </a> 
                   <?php } ?>
-                  <?php if($requests[$i]['status'] != 'rejected') { ?>
-                  <a href="<?php echo site_url('admin/Faculty/FacultyLeave/leave_status/rejected/'.$requests[$i]['faculty_leaveid']); ?>" title="Reject" class="btn btn-danger btn-xs">
+                  <?php if($reports[$i]['status'] != 'rejected') { ?>
+                  <a href="<?php echo site_url('admin/Faculty/lecturereport/report_status/rejected/'.$reports[$i]['id']); ?>" title="Rejected" class="btn btn-danger btn-xs">
+
                     <i class="fa fa-thumbs-down"></i>
                   </a> 
                   <?php } ?>
                 </td>
               </tr>
             <?php } ?>
-            <?php if(count($requests) == 0) { ?>
+            <?php if(count($reports) == 0) { ?>
                 <tr><td align="center" colspan="8">No data available in table</td></tr>
             <?php } ?>
             </tbody>

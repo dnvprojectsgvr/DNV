@@ -67,6 +67,20 @@
           </ul>
         </li>
 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-group"></i>
+            <span>Lecture Repot</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo site_url('faculty/lecturereport/add'); ?>"><i class="fa fa-user-plus"></i>Add Lecture Report</a></li>
+            <li><a href="<?php echo site_url('faculty/lecturereport'); ?>"><i class="ion ion-clipboard"></i>Lecture Reports</a></li>
+          </ul>
+        </li>
+
       </ul>
     </section>
     

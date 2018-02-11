@@ -29,7 +29,7 @@
               </li>
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?php echo site_url('admin/setting'); ?>" class="btn btn-default btn-flat">Profile</a>
+                  <a href="<?php echo site_url('admin/admin/setting'); ?>" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo site_url('login/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
@@ -106,8 +106,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo site_url('admin/Faculty/test'); ?>"><i class="fa fa-user-plus"></i>Add Faculty</a></li>
-            <li><a href="<?php echo site_url('admin/Faculty'); ?>"><i class="ion ion-clipboard"></i>View Faculty</a></li>
-            <li><a href="<?php echo site_url('admin/Faculty/leaves'); ?>"><i class="ion ion-clipboard"></i>Faculty Leave</a></li>
+            <li><a href="<?php echo site_url('admin/Faculty/Faculty'); ?>"><i class="ion ion-clipboard"></i>View Faculty</a></li>
+            <li><a href="<?php echo site_url('admin/Faculty/FacultyLeave/leaves'); ?>"><i class="ion ion-clipboard"></i>Faculty Leave</a></li>
             <li class="treeview">
           <a href="#">
             <i class="fa fa-bullseye"></i> <span>Teacher Reports</span>
@@ -116,7 +116,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('Faculty/document_exp'); ?>"><i class="fa fa-window-close-o"></i>Lecture Reports</a></li>
+            <li><a href="<?php echo site_url('admin/Faculty/lecturereport/reports'); ?>"><i class="fa fa-window-close-o"></i>Lecture Reports</a></li>
             <li><a href="<?php echo site_url('Faculty/ckeck_loan'); ?>"><i class="fa fa-window-close-o"></i>Attendence Repot</a></li>
             <li><a href="<?php echo site_url('Faculty/ending_loan_statment'); ?>"><i class="fa fa-circle-o"></i>Syllabus Report</a></li>
           </ul>
