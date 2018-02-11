@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 02:52 PM
+-- Generation Time: Feb 11, 2018 at 10:56 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -92,15 +92,16 @@ CREATE TABLE `faculty_details` (
   `gender` enum('male','female','other') NOT NULL,
   `mob_no` bigint(11) NOT NULL,
   `email_id` varchar(255) NOT NULL,
-  `dob` date NOT NULL
+  `dob` date NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'ACTIVE'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `faculty_details`
 --
 
-INSERT INTO `faculty_details` (`id`, `faculty_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `dob`) VALUES
-(2, 'ramesh12', 'ramesh', '', 'chouhan', 'ramesh  chouhan', 'suresh', 'male', 9832748978, 'ramesh@gmail.com', '1999-07-05');
+INSERT INTO `faculty_details` (`id`, `faculty_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `dob`, `status`) VALUES
+(2, 'ramesh12', 'ramesh', '', 'chouhan', 'ramesh  chouhan', 'suresh', 'male', 9832748978, 'ramesh@gmail.com', '1999-07-05', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,7 @@ CREATE TABLE `faculty_leaves` (
   `leave_todate` date NOT NULL,
   `leave_reason` varchar(1024) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(8) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
-  `requested_datetime` datetime NOT NULL
+  `requested_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
@@ -124,7 +125,8 @@ CREATE TABLE `faculty_leaves` (
 
 INSERT INTO `faculty_leaves` (`faculty_leaveid`, `faculty_id`, `leave_fromdate`, `leave_todate`, `leave_reason`, `status`, `requested_datetime`) VALUES
 (14, 'ramesh12', '2018-02-01', '2018-02-05', 'college trip', 'deleted', '0000-00-00 00:00:00'),
-(15, 'ramesh12', '2018-01-30', '2018-03-01', 'test\r\n', 'pending', '0000-00-00 00:00:00');
+(15, 'ramesh12', '2018-01-30', '2018-03-01', 'test\r\n', 'approved', '0000-00-00 00:00:00'),
+(16, 'ramesh12', '2018-01-30', '2018-02-10', 'this is also a test', 'rejected', '2018-02-11 13:53:47');
 
 -- --------------------------------------------------------
 
@@ -137,6 +139,32 @@ CREATE TABLE `faculty_subjects` (
   `faculty_id` varchar(60) NOT NULL,
   `subject_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lecture_report`
+--
+
+CREATE TABLE `lecture_report` (
+  `id` int(10) NOT NULL,
+  `faculty_id` varchar(10) NOT NULL,
+  `subject` int(10) NOT NULL,
+  `note` varchar(250) NOT NULL,
+  `date` date NOT NULL,
+  `no_of_pre_student` int(10) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'pending',
+  `reporttime` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lecture_report`
+--
+
+INSERT INTO `lecture_report` (`id`, `faculty_id`, `subject`, `note`, `date`, `no_of_pre_student`, `status`, `reporttime`) VALUES
+(1, 'ramesh12', 0, 'This is a test', '2018-02-07', 14, 'approved', '2018-02-11 13:55:22'),
+(2, 'ramesh12', 0, 'this is also a test', '2018-02-07', 15, 'rejected', '2018-02-11 13:55:42'),
+(3, 'ramesh12', 0, 'test', '2018-02-17', 50, 'pending', '2018-02-11 14:08:48');
 
 -- --------------------------------------------------------
 
@@ -219,15 +247,16 @@ CREATE TABLE `student_details` (
   `admin_year` year(4) NOT NULL,
   `roll_no` int(3) NOT NULL,
   `course` varchar(20) NOT NULL,
-  `dob` date NOT NULL
+  `dob` date NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'ACTIVE'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_details`
 --
 
-INSERT INTO `student_details` (`id`, `student_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `admin_year`, `roll_no`, `course`, `dob`) VALUES
-(2, '2010bca20', 'ramesh', 'singh', 'chouhan', 'ramesh singh chouhan', 'suresh', 'male', 8732467563, 'ramesh@gmail.com', 2010, 20, 'BCA', '1999-07-05');
+INSERT INTO `student_details` (`id`, `student_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `admin_year`, `roll_no`, `course`, `dob`, `status`) VALUES
+(2, '2010bca20', 'ramesh', 'singh', 'chouhan', 'ramesh singh chouhan', 'suresh', 'male', 8732467563, 'ramesh@gmail.com', 2010, 20, 'BCA', '1999-07-05', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -312,6 +341,12 @@ ALTER TABLE `faculty_subjects`
   ADD KEY `subject_id` (`subject_id`);
 
 --
+-- Indexes for table `lecture_report`
+--
+ALTER TABLE `lecture_report`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `portal_config`
 --
 ALTER TABLE `portal_config`
@@ -381,12 +416,17 @@ ALTER TABLE `faculty_details`
 -- AUTO_INCREMENT for table `faculty_leaves`
 --
 ALTER TABLE `faculty_leaves`
-  MODIFY `faculty_leaveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `faculty_leaveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `faculty_subjects`
 --
 ALTER TABLE `faculty_subjects`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `lecture_report`
+--
+ALTER TABLE `lecture_report`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `semester_details`
 --
