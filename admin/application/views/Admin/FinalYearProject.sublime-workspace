@@ -305,22 +305,9 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/xampp/htdocs/DNV",
-		"/C/xampp/htdocs/DNV/admin",
-		"/C/xampp/htdocs/DNV/admin/application",
-		"/C/xampp/htdocs/DNV/admin/application/controllers",
-		"/C/xampp/htdocs/DNV/admin/application/controllers/admin",
-		"/C/xampp/htdocs/DNV/admin/application/controllers/admin/Faculty",
-		"/C/xampp/htdocs/DNV/admin/application/controllers/faculty",
-		"/C/xampp/htdocs/DNV/admin/application/models",
-		"/C/xampp/htdocs/DNV/admin/application/views",
-		"/C/xampp/htdocs/DNV/admin/application/views/Admin",
-		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty"
-	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/result_system_orignal/userid_student.js",
 		"/C/xampp/htdocs/new_fp_nirav/application/controllers/Employee.php",
 		"/C/xampp/htdocs/DNV/admin/application/views/Admin/Faculty/leaves.php",
 		"/C/xampp/htdocs/DNV/admin/application/controllers/admin/Faculty.php",
@@ -442,7 +429,7 @@
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -681,7 +668,7 @@
 	"project": "FinalYearProject.sublime-project",
 	"replace":
 	{
-		"height": 73.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

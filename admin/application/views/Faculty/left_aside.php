@@ -29,7 +29,7 @@
               </li>
                <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?php echo site_url('employee/setting'); ?>" class="btn btn-default btn-flat">Setting</a>
+                  <a href="<?php echo site_url('faculty/setting/setting'); ?>" class="btn btn-default btn-flat">Setting</a>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo site_url('login/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>

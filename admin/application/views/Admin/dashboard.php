@@ -68,11 +68,11 @@
             <p>Faculty's</p>
           </div>
           <div class="icon">
-            <a href="<?php //echo site_url('vehicle/add'); ?>">
+            <a href="<?php echo site_url('admin'); ?>">
               <i class="fa fa-user" style="color:rgb(218, 140, 16)"></i>
             </a>
           </div>
-          <a class="small-box-footer"  href="<?php echo site_url('admin/faculty'); ?>">
+          <a class="small-box-footer"  href="<?php echo site_url('admin/faculty/faculty/view_faculty'); ?>">
             Faculty List <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
