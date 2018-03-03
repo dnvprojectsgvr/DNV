@@ -29,7 +29,7 @@
       <div class="box">
         <div class="box-body">
 
-          <form method="POST" action="<?php echo site_url('admin/gallery/edit_file_upload');?>" enctype='multipart/form-data'>
+          <form method="POST" action="<?php echo site_url('admin/events/edit_file_upload');?>" enctype='multipart/form-data'>
 
             <?php
             if(isset($edit_data) && is_array($edit_data) && count($edit_data)): $i=1;
@@ -124,7 +124,7 @@
       {
         $.ajax({
           type: "POST",
-          url: "<?php echo site_url('admin/gallery/deleteimage');?>",
+          url: "<?php echo site_url('admin/events/deleteimage');?>",
           data: "image_id="+image_id,
           success: function (response) {
             if (response == 1) {

@@ -21,68 +21,70 @@
 
 </head>
 
-<?php $this->load->view('Admin/left_aside'); ?>
+<?php $this->load->view('Faculty/left_aside'); ?>
 <section class="content">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="box">
         <div class="box-body">
-          <form method="POST" action="<?php  echo site_url('admin/events/file_upload');?>" enctype='multipart/form-data'>
-             <!--  <div class="col-md-4 form-group">
-                  <label> Event Date</label>
-                  <input type="text" name="data[date]" class="form-control datepicker" placeholder="Enter Event Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
-              </div> -->
+          <form role="form" method="post" enctype="multipart/form-data">
+            <div class="panel">
+              <div class="panel-body">
 
-              <div class="col-md-8 form-group">
-                  <label>Event Title</label>
-                 <!--  <input type="text" name="data[name]" class="form-control " placeholder="Enter Event Title" min="0" required="required" > -->
-                 <input type="text" name="name" required id="name" placeholder="Name" class="form-control ">
+                <input type="hidden" name="id" class="form-control " placeholder="Enter assignment id" min="0" required="required" value="<?php echo $assignment[0]['id']; ?>">
+
+                <div class="col-md-4 form-group">
+                  <label>Start Date</label>
+                  <input type="text" name="srt_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask   value="<?php echo $assignment[0]['srt_date']; ?>">
+                </div>
+
+                <div class="col-md-4 form-group">
+                  <label>Last Date</label>
+                  <input type="text" name="lst_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="<?php echo $assignment[0]['lst_date']; ?>">
+                </div>
+
+                <div class="form-group col-md-4 ">
+                  <label>Picture</label>
+                  <input class="form-control" type="file" name="picture" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Name of Assignment</label>
+                  <input class="form-control" type="text" name="name"  value="<?php echo $assignment[0]['name']; ?>"/>
+                </div>
+                 <div class="form-group col-md-6">
+                  <label>Subject of Assignment</label>
+                  <input class="form-control" type="text" name="subject"  value="<?php echo $assignment[0]['subject']; ?>"/>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Note</label>
+                  <input class="form-control" type="text" name="note" value="<?php echo $assignment[0]['note']; ?>"/>
+                </div>
+
+                
+
+                <div class="col-md-12 form-group">
+                  <input type="submit" class="btn btn-primary pull-right " name="userSubmit" value="Add">
+                </div>
               </div>
-
-              <div class="col-md-4 form-group">
-              <label>Image</label>
-              <!-- <input type="file" name="userfile[]" class="form-control " required id="image_file" accept=".png,.jpg,.jpeg,.gif" multiple> -->
-              <input type="file" name="userfile[]" required id="image_file" accept=".png,.jpg,.jpeg,.gif" multiple class="form-control ">
-          </div>
-
-
-              <div class="col-md-12 form-group">
-                <label>Event Description</label>
-                <textarea name="class" class="form-control " placeholder="Enter Event Description"  id="class"  required="required" ></textarea> 
-                <!-- <input type="text" name="class" required id="class" placeholder="Class" class="form-control "> -->
             </div>
-
-          <div class="col-md-12 form-group">
-              <!-- <button type="type" class="btn btn-primary pull-right" name="submit" value="Submit">SUBMIT</button> -->
-              <input  type="submit" value="Submit" class="btn btn-primary pull-right">
-          </div>
-        </form>
-
-          <!-- <?php echo form_close(); ?> -->
-
-
-
-
-          <!-- <td><input type="text" name="name" required id="name" placeholder="Name"></td>
-          <td><input type="text" name="class" required id="class" placeholder="Class"></td>
-          <td><input type="file" name="userfile[]" required id="image_file" accept=".png,.jpg,.jpeg,.gif" multiple></td>
-          <td colspan="2" align="center"><input style="width: 50%;" type="submit" value="Submit"></td> -->
+          </form>
+        </div>
       </div>
-  </div>
-</div>
+    </div>
 
-</div>
+  </div>
 </section>
 </div>
 
 <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Developed by</b><a href="<?php echo $this->session->portal_config['developer_web']; ?>"> <?php echo $this->session->portal_config['developer_name']; ?></a>
+  <div class="pull-right hidden-xs">
+    <b>Developed by</b><a href="<?php echo $this->session->portal_config['developer_web']; ?>"> <?php echo $this->session->portal_config['developer_name']; ?></a>
   </div>
   <strong>Copyright &copy; <?php echo date('Y'); ?>
     <a href="<?php echo $this->session->portal_config['url']; ?>"><?php echo $this->session->portal_config['club_name']; ?></a>.
-</strong> All rights
-reserved.
+  </strong> All rights
+  reserved.
 </footer>
 
 <div class="control-sidebar-bg"></div>
@@ -104,7 +106,7 @@ reserved.
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.extensions.js'); ?>"></script>
 <script type="text/javascript">
-    $("[data-mask]").inputmask();
+  $("[data-mask]").inputmask();
 </script>
 </body>
 </html>

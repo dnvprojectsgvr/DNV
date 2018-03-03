@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2018 at 10:56 AM
+-- Generation Time: Mar 03, 2018 at 05:18 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -23,32 +23,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `assignment`
 --
 
-CREATE TABLE `admin` (
-  `admin_id` int(11) NOT NULL,
-  `login_type` varchar(16) NOT NULL,
-  `username` varchar(256) NOT NULL,
-  `password` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `assignment` (
+  `id` int(11) NOT NULL,
+  `faculty_id` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `srt_date` date NOT NULL,
+  `lst_date` date NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `status` varchar(12) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'open' COMMENT '1=Active, 0=Inactive',
+  `subject` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `assignment`
 --
 
-INSERT INTO `admin` (`admin_id`, `login_type`, `username`, `password`) VALUES
-(1, 'admin', 'admin', 'CQWBQ2K4s6iXauaBCJtShyimtXaY4zVWXFJ/s3FDVZA='),
-(2, 'admin', 'admin', 'EAZolWd/IurN+YgL/oyF35yJ5JDEAlkhu4g5rdIiyTg='),
-(3, 'admin', 'admin', 'FA8oEXHu3pLHR7ZyB54CML6zAH0peT4Nlx2gNBm1j2s='),
-(13, 'employee', 'niravparmar', 'fTqhROUyIXoI7IjOz4VwB2yAgiCnPx8k4JQGjiYwWrM='),
-(14, 'employee', 'jaysolanki', 'fBgLnjgBKt8dgoY9MUfsqP3Yy2r8l+oKCp9jz6CR8EU='),
-(15, 'employee', 'cm', 'setIq/fB+vgy56YZAnyrl6ZbaCN8+BFVklbx7QsObK8='),
-(16, 'employee', 'viraj', 'BzvHQi8mdd7ftBxx1Axs2pVcgvuvtdoic3FGzRNxzQc='),
-(17, 'employee', '', '/MCmc2VlUiy6cAMZN43pMGrxzYpoqdlqllYPxQDB5K0='),
-(18, 'employee', 'rj', 'JeYFToCuF6hkReV78nrD4+MCQ1JvKb5JeodE5hlqhNA='),
-(19, 'employee', 'abc', 'ReM4VvP5W4WXgXMZEaO5B7Zpn6CVhShAjzuAM0h3j+g='),
-(20, 'admin', 'admin', 'CQWBQ2K4s6iXauaBCJtShyimtXaY4zVWXFJ/s3FDVZA=');
+INSERT INTO `assignment` (`id`, `faculty_id`, `srt_date`, `lst_date`, `name`, `note`, `picture`, `created`, `modified`, `status`, `subject`) VALUES
+(1, 'ramesh12', '2018-02-01', '2018-03-01', 'test', 'manager@example.com', '', '2018-03-02 21:42:05', '2018-03-02 21:42:05', 'closed', 0),
+(2, 'ramesh12', '2018-02-20', '2018-03-06', 'test 2', 'admin@example.com', '', '2018-03-02 21:43:06', '2018-03-02 21:43:06', 'deleted', 0),
+(3, 'ramesh12', '2018-02-10', '2018-02-21', 'test 3', 'svirajpal@gmail.com', '', '2018-03-02 21:43:49', '2018-03-02 21:43:49', 'closed', 0),
+(4, 'ramesh12', '2018-02-02', '2018-03-02', 'test 4', '8401418867', 'data.pdf', '2018-03-02 21:44:59', '2018-03-02 21:44:59', 'closed', 0),
+(5, 'ramesh12', '2018-02-01', '2018-03-04', 'nkvhjvjhv', 'jhvjhvjhv', 'check.pdf', '2018-03-02 21:47:34', '2018-03-02 21:47:34', 'deleted', 0),
+(6, 'ramesh12', '2018-03-01', '2018-03-24', 'IBPS part 4', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt8.pdf', '2018-03-03 18:32:19', '2018-03-03 18:32:19', 'closed', 0),
+(7, 'ramesh12', '2018-02-27', '2018-03-03', 'test 4', 'this was a test 2', '', '2018-03-03 18:32:03', '2018-03-03 18:32:03', 'open', 0),
+(8, 'ramesh12', '2018-03-01', '2018-03-15', 'test 6', 'this was a test with faculty id', 'jijosa_waiting_ticket14APR_2018.pdf', '2018-03-02 22:12:40', '2018-03-02 22:12:40', 'open', 0),
+(9, 'ramesh12', '2018-03-01', '2018-03-15', 'test 5', 'this was a test with faculty id (2)', 'ssc_sp_payment.pdf', '2018-03-02 22:16:17', '2018-03-02 22:16:17', 'open', 0),
+(10, 'ramesh12', '2018-03-09', '2018-03-20', 'nkvhjvjhvsfedsd', 'sdsfghjkhhg', 'check3.pdf', '2018-03-02 22:33:55', '2018-03-02 22:33:55', 'closed', 0),
+(11, 'ramesh12', '2018-03-13', '2018-02-25', 'test 2', 'this was a test with faculty id', 'IBPS_CRP_SPL_VII_Detail_Advt1.pdf', '2018-03-02 22:34:33', '2018-03-02 22:34:33', 'closed', 0),
+(12, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 2 edit', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt2.pdf', '2018-03-03 18:00:29', '2018-03-03 18:00:29', 'closed', 0),
+(13, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 3', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt4.pdf', '2018-03-03 18:07:30', '2018-03-03 18:07:30', 'closed', 0),
+(14, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 3', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt5.pdf', '2018-03-03 18:08:42', '2018-03-03 18:08:42', 'closed', 0);
 
 -- --------------------------------------------------------
 
@@ -62,6 +72,77 @@ CREATE TABLE `course_details` (
   `stream_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `course_details`
+--
+
+INSERT INTO `course_details` (`id`, `course_name`, `stream_id`) VALUES
+(1, 'BCA', 1),
+(2, 'BBA', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `criteria_details`
+--
+
+CREATE TABLE `criteria_details` (
+  `id` int(10) NOT NULL,
+  `criteria_name` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `u_id` int(11) NOT NULL,
+  `name` varchar(350) NOT NULL,
+  `class` varchar(350) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`u_id`, `name`, `class`) VALUES
+(1, 'test', ' \r\n                    this is a test of gallery with agents of shield.                   '),
+(2, 'test', 'test of gallery with agents of shield');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events_photos`
+--
+
+CREATE TABLE `events_photos` (
+  `id` int(11) NOT NULL,
+  `image` varchar(350) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `events_photos`
+--
+
+INSERT INTO `events_photos` (`id`, `image`, `user_id`) VALUES
+(1, '1519877646vlcsnap-error294.png', 1),
+(5, '1519964832vlcsnap-error317.png', 1),
+(7, '1519965177P_20160723_114316.jpg', 1),
+(8, '1519965177vlcsnap-error294.png', 1),
+(9, '1519965177vlcsnap-error317.png', 1),
+(10, '1519965177vlcsnap-error767.png', 1),
+(11, '1519965195P_20160723_114316.jpg', 1),
+(12, '1519965195vlcsnap-error294.png', 1),
+(13, '1519965195vlcsnap-error317.png', 1),
+(14, '1519965195vlcsnap-error767.png', 1),
+(15, '1520005556P_20160723_114316.jpg', 2),
+(16, '1520005556vlcsnap-error294.png', 2),
+(17, '1520005556vlcsnap-error317.png', 2),
+(18, '1520005556vlcsnap-error767.png', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -70,7 +151,7 @@ CREATE TABLE `course_details` (
 
 CREATE TABLE `faculty_criteria_details` (
   `id` int(10) NOT NULL,
-  `criteria_name` varchar(45) NOT NULL,
+  `criteria_id` int(10) NOT NULL,
   `criteria_marks` int(5) NOT NULL,
   `faculty_sub_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -82,7 +163,6 @@ CREATE TABLE `faculty_criteria_details` (
 --
 
 CREATE TABLE `faculty_details` (
-  `id` int(10) NOT NULL,
   `faculty_id` varchar(30) NOT NULL,
   `f_name` varchar(45) NOT NULL,
   `m_name` varchar(45) NOT NULL,
@@ -100,8 +180,8 @@ CREATE TABLE `faculty_details` (
 -- Dumping data for table `faculty_details`
 --
 
-INSERT INTO `faculty_details` (`id`, `faculty_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `dob`, `status`) VALUES
-(2, 'ramesh12', 'ramesh', '', 'chouhan', 'ramesh  chouhan', 'suresh', 'male', 9832748978, 'ramesh@gmail.com', '1999-07-05', 'ACTIVE');
+INSERT INTO `faculty_details` (`faculty_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `dob`, `status`) VALUES
+('ramesh12', 'ramesh', 'ram', 'chouhan', 'ramesh  chouhan', 'suresh', 'male', 9843789754, 'ramesh@gmail.com', '1999-07-05', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -125,8 +205,9 @@ CREATE TABLE `faculty_leaves` (
 
 INSERT INTO `faculty_leaves` (`faculty_leaveid`, `faculty_id`, `leave_fromdate`, `leave_todate`, `leave_reason`, `status`, `requested_datetime`) VALUES
 (14, 'ramesh12', '2018-02-01', '2018-02-05', 'college trip', 'deleted', '0000-00-00 00:00:00'),
-(15, 'ramesh12', '2018-01-30', '2018-03-01', 'test\r\n', 'approved', '0000-00-00 00:00:00'),
-(16, 'ramesh12', '2018-01-30', '2018-02-10', 'this is also a test', 'rejected', '2018-02-11 13:53:47');
+(15, 'ramesh12', '2018-01-30', '2018-03-01', 'test\r\n', 'pending', '0000-00-00 00:00:00'),
+(16, 'ramesh12', '2018-01-30', '2018-02-10', 'this is also a test', 'pending', '2018-02-11 13:53:47'),
+(17, 'ramesh12', '2018-03-01', '2018-03-31', 'thigjfcbtrdvy', 'approved', '2018-03-01 09:38:37');
 
 -- --------------------------------------------------------
 
@@ -139,6 +220,46 @@ CREATE TABLE `faculty_subjects` (
   `faculty_id` varchar(60) NOT NULL,
   `subject_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `u_id` int(11) NOT NULL,
+  `name` varchar(350) NOT NULL,
+  `class` varchar(350) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`u_id`, `name`, `class`) VALUES
+(1, 'test', ' \r\n                     \r\n                    this is a test of gallery with agents of shield.                                     ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery_photos`
+--
+
+CREATE TABLE `gallery_photos` (
+  `id` int(11) NOT NULL,
+  `image` varchar(350) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `gallery_photos`
+--
+
+INSERT INTO `gallery_photos` (`id`, `image`, `user_id`) VALUES
+(1, '1520005608P_20160723_114316.jpg', 1),
+(2, '1520005608vlcsnap-error294.png', 1),
+(3, '1520005608vlcsnap-error317.png', 1);
 
 -- --------------------------------------------------------
 
@@ -202,6 +323,14 @@ CREATE TABLE `semester_details` (
   `course_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `semester_details`
+--
+
+INSERT INTO `semester_details` (`id`, `semester_name`, `course_id`) VALUES
+(1, 'SEM-1', 1),
+(2, 'SEM-2', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -212,6 +341,14 @@ CREATE TABLE `stream_details` (
   `id` int(10) NOT NULL,
   `stream_name` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `stream_details`
+--
+
+INSERT INTO `stream_details` (`id`, `stream_name`) VALUES
+(1, 'SCIENCE'),
+(2, 'COMMERCE');
 
 -- --------------------------------------------------------
 
@@ -234,7 +371,6 @@ CREATE TABLE `student_criteria_details` (
 --
 
 CREATE TABLE `student_details` (
-  `id` int(10) NOT NULL,
   `student_id` varchar(20) NOT NULL,
   `f_name` varchar(45) NOT NULL,
   `m_name` varchar(45) NOT NULL,
@@ -255,8 +391,8 @@ CREATE TABLE `student_details` (
 -- Dumping data for table `student_details`
 --
 
-INSERT INTO `student_details` (`id`, `student_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `admin_year`, `roll_no`, `course`, `dob`, `status`) VALUES
-(2, '2010bca20', 'ramesh', 'singh', 'chouhan', 'ramesh singh chouhan', 'suresh', 'male', 8732467563, 'ramesh@gmail.com', 2010, 20, 'BCA', '1999-07-05', 'ACTIVE');
+INSERT INTO `student_details` (`student_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `admin_year`, `roll_no`, `course`, `dob`, `status`) VALUES
+('2010bca20', 'suresh', 'singh', 'chouhan', 'suresh singh chouhan', 'ganesh', 'male', 8768563476, 'suresh@gmail.com', 2010, 20, 'BCA', '1999-07-05', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -267,9 +403,43 @@ INSERT INTO `student_details` (`id`, `student_id`, `f_name`, `m_name`, `l_name`,
 CREATE TABLE `subjects_details` (
   `id` int(10) NOT NULL,
   `subjects_name` varchar(60) NOT NULL,
+  `criteria_marks` int(5) NOT NULL,
   `is_practical` tinyint(1) NOT NULL,
   `semester_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subjects_details`
+--
+
+INSERT INTO `subjects_details` (`id`, `subjects_name`, `criteria_marks`, `is_practical`, `semester_id`) VALUES
+(1, 'PHP', 0, 1, 1),
+(2, 'ACCOUNTS', 0, 0, 2),
+(6, 'vb.net', 0, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `todos`
+--
+
+CREATE TABLE `todos` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `user_id` varchar(10) NOT NULL,
+  `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(12) NOT NULL DEFAULT 'open'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `todos`
+--
+
+INSERT INTO `todos` (`id`, `name`, `description`, `user_id`, `create_date`, `status`) VALUES
+(1, 'test 4', 'sdfghjkj', '', '2018-03-03 21:43:30', 'open'),
+(2, 'dfghj', 'sdfghkjlk;', '', '2018-03-03 21:43:30', 'open'),
+(3, 'sdsfghjkl;lkjhgfd', 'fgfhjlkjhgfds', '', '2018-03-03 21:43:30', 'open');
 
 -- --------------------------------------------------------
 
@@ -291,19 +461,19 @@ CREATE TABLE `users_details` (
 --
 
 INSERT INTO `users_details` (`user_id`, `password`, `security_ques`, `security_ans`, `user_type`, `status`) VALUES
-('2010bca20', 'Ramesh@12', 'mother name', 'heena', 'student', 'active'),
+('2010bca20', 'Suresh@12', 'favourite teacher', 'heena', 'student', 'active'),
 ('admin', 'admin', 'favourite teacher', 'beena', 'admin', 'active'),
-('ramesh12', 'Ramesh@12', 'favourite teacher', 'leena', 'faculty', 'active');
+('ramesh12', 'ramesh@123', 'favourite teacher', 'geeta', 'faculty', 'active');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `assignment`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`admin_id`);
+ALTER TABLE `assignment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `course_details`
@@ -313,17 +483,35 @@ ALTER TABLE `course_details`
   ADD KEY `stream_id` (`stream_id`);
 
 --
+-- Indexes for table `criteria_details`
+--
+ALTER TABLE `criteria_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`u_id`);
+
+--
+-- Indexes for table `events_photos`
+--
+ALTER TABLE `events_photos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `faculty_criteria_details`
 --
 ALTER TABLE `faculty_criteria_details`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `faculty_sub_id` (`faculty_sub_id`);
+  ADD KEY `faculty_sub_id` (`faculty_sub_id`),
+  ADD KEY `criteria_id` (`criteria_id`);
 
 --
 -- Indexes for table `faculty_details`
 --
 ALTER TABLE `faculty_details`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `faculty_id` (`faculty_id`);
 
 --
@@ -339,6 +527,18 @@ ALTER TABLE `faculty_subjects`
   ADD PRIMARY KEY (`id`),
   ADD KEY `faculty_id` (`faculty_id`),
   ADD KEY `subject_id` (`subject_id`);
+
+--
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`u_id`);
+
+--
+-- Indexes for table `gallery_photos`
+--
+ALTER TABLE `gallery_photos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `lecture_report`
@@ -370,14 +570,13 @@ ALTER TABLE `stream_details`
 --
 ALTER TABLE `student_criteria_details`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `student_id` (`student_id`,`faculty_criteria_id`),
-  ADD KEY `faculty_criteria_id` (`faculty_criteria_id`);
+  ADD KEY `faculty_criteria_id` (`faculty_criteria_id`),
+  ADD KEY `student_id` (`student_id`);
 
 --
 -- Indexes for table `student_details`
 --
 ALTER TABLE `student_details`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `student_id` (`student_id`);
 
 --
@@ -385,7 +584,13 @@ ALTER TABLE `student_details`
 --
 ALTER TABLE `subjects_details`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `semester_id` (`semester_id`);
+  ADD KEY `semester_id` (`semester_id`);
+
+--
+-- Indexes for table `todos`
+--
+ALTER TABLE `todos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users_details`
@@ -398,30 +603,55 @@ ALTER TABLE `users_details`
 --
 
 --
+-- AUTO_INCREMENT for table `assignment`
+--
+ALTER TABLE `assignment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
 -- AUTO_INCREMENT for table `course_details`
 --
 ALTER TABLE `course_details`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `criteria_details`
+--
+ALTER TABLE `criteria_details`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `events_photos`
+--
+ALTER TABLE `events_photos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `faculty_criteria_details`
 --
 ALTER TABLE `faculty_criteria_details`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `faculty_details`
---
-ALTER TABLE `faculty_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `faculty_leaves`
 --
 ALTER TABLE `faculty_leaves`
-  MODIFY `faculty_leaveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `faculty_leaveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `faculty_subjects`
 --
 ALTER TABLE `faculty_subjects`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `gallery_photos`
+--
+ALTER TABLE `gallery_photos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `lecture_report`
 --
@@ -431,27 +661,27 @@ ALTER TABLE `lecture_report`
 -- AUTO_INCREMENT for table `semester_details`
 --
 ALTER TABLE `semester_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `stream_details`
 --
 ALTER TABLE `stream_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `student_criteria_details`
 --
 ALTER TABLE `student_criteria_details`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `student_details`
---
-ALTER TABLE `student_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `subjects_details`
 --
 ALTER TABLE `subjects_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `todos`
+--
+ALTER TABLE `todos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -466,7 +696,8 @@ ALTER TABLE `course_details`
 -- Constraints for table `faculty_criteria_details`
 --
 ALTER TABLE `faculty_criteria_details`
-  ADD CONSTRAINT `faculty_criteria_details_ibfk_1` FOREIGN KEY (`faculty_sub_id`) REFERENCES `faculty_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `faculty_criteria_details_ibfk_1` FOREIGN KEY (`faculty_sub_id`) REFERENCES `faculty_subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `faculty_criteria_details_ibfk_2` FOREIGN KEY (`criteria_id`) REFERENCES `criteria_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `faculty_details`
@@ -492,7 +723,7 @@ ALTER TABLE `semester_details`
 --
 ALTER TABLE `student_criteria_details`
   ADD CONSTRAINT `student_criteria_details_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student_details` (`student_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_criteria_details_ibfk_2` FOREIGN KEY (`faculty_criteria_id`) REFERENCES `faculty_criteria_details` (`faculty_sub_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_criteria_details_ibfk_3` FOREIGN KEY (`faculty_criteria_id`) REFERENCES `faculty_criteria_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_details`

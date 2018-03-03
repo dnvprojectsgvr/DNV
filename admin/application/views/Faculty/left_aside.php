@@ -81,6 +81,21 @@
           </ul>
         </li>
 
+
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-book"></i>
+            <span>Assignment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo site_url('faculty/assignment/add'); ?>"><i class="fa fa-book"></i>Add Assignment</a></li>
+            <li><a href="<?php echo site_url('faculty/assignment'); ?>"><i class="ion ion-clipboard"></i>View Assignments</a></li>
+          </ul>
+        </li>
+
       </ul>
     </section>
     

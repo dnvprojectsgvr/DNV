@@ -1,4 +1,3 @@
-<?php $title = " View Event" ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?php echo $this->session->portal_config['short_name']; ?> | <?php echo $title; ?></title>
 
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, events-scalable=no" name="viewport">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/fonts/font-awesome/css/font-awesome.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/fonts/ionicons/css/ionicons.min.css'); ?>">
@@ -28,65 +27,37 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="box">
         <div class="box-body">
-         <div class="col-md-12 table-responsive">
-         <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Name </span></a></th>
-                <th>Description </span></a></th>
-                <th>Action</th>     
-              </tr>
-            </thead>
-            <tbody>
-              <?php // for($i=0; $i < count($events);$i++) { ?>
+          <form method="POST" action="<?php  echo site_url('admin/gallery/file_upload');?>" enctype='multipart/form-data'>
+             <!--  <div class="col-md-4 form-group">
+                  <label> Event Date</label>
+                  <input type="text" name="data[date]" class="form-control datepicker" placeholder="Enter Event Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
+                </div> -->
 
-              <?php
-              if(isset($view_data) && is_array($view_data) && count($view_data)): $i=1;
-                foreach ($view_data as $key => $data) { 
-                  ?>
+                <div class="col-md-8 form-group">
+                  <label>Gallery Title</label>
+                  <!--  <input type="text" name="data[name]" class="form-control " placeholder="Enter Event Title" min="0" required="required" > -->
+                  <input type="text" name="name" required id="name" placeholder="Name" class="form-control ">
+                </div>
 
-              <tr>
-                <td><?php echo $i++ ?></td>
-<!--                 <td><?php //echo $data['u_id']; ?></td> -->
-                <td><?php echo $data['name']; ?></td>
-                <td><?php echo $data['class']; ?></td>
-                <td align="center">
-                  <a href="<?php echo site_url(); ?>/admin/gallery/edit/<?php echo $data['u_id']; ?>" title="Edit" class="btn btn-primary btn-xs">
-                    <i class="fa fa-pencil-square-o"></i>
-                  </a> 
-                  <!-- <a href="<?php // echo site_url('faculty/leaves/delete/'.$events[$i]['faculty_leaveid']); ?>" title="Delete" class="btn btn-danger btn-xs" onclick="return confirm('are you sure you want to delete?'); ">
-                    <i class="fa fa-trash-o"></i>
-                  </a> -->
-                </td>
-              </tr>
-              <?php } endif; ?>
-
-            </table>
+                 <div class="file-tab panel-body">
+                  <label class="btn btn-default btn-file">
+                   <span>Browse</span>
+                   <input type="file" name="userfile[]" id="image_file" accept=".png,.jpg,.jpeg,.gif" class="form-control " multiple>
+                 </label>
+               </div>
 
 
+                <div class="col-md-12 form-group">
+                  <label>Gallery Description</label>
+                  <textarea name="class" class="form-control " placeholder="Enter Event Description"  id="class"  required="required" ></textarea> 
+                  <!-- <input type="text" name="class" required id="class" placeholder="Class" class="form-control "> -->
+                </div>
 
-<!-- 
-            <table border="1" style="width:100%">
-              <tr>
-                <td>S.No</td>
-                <td>Name</td> 
-                <td>Class</td>
-                <td>Edit</td>
-              </tr>
-              <?php
-              if(isset($view_data) && is_array($view_data) && count($view_data)): $i=1;
-                foreach ($view_data as $key => $data) { 
-                  ?>
-                  <tr>
-                    <td><?php echo $i++ ?></td>
-                    <td><?php echo $data['name']; ?></td> 
-                    <td><?php echo $data['class']; ?></td>
-                    <td><a href="<?php echo site_url(); ?>/admin/events/edit/<?php echo $data['u_id']; ?>">Edit</a></td>
-                  </tr>
-                  <?php } endif; ?>
-                </table> -->
-              </div>
+                <div class="col-md-12 form-group">
+                  <!-- <button type="type" class="btn btn-primary pull-right" name="submit" value="Submit">SUBMIT</button> -->
+                  <input  type="submit" value="Submit" class="btn btn-primary pull-right">
+                </div>
+              </form>
             </div>
           </div>
         </div>

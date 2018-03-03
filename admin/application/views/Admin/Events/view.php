@@ -52,12 +52,12 @@
                 <td><?php echo $data['name']; ?></td>
                 <td><?php echo $data['class']; ?></td>
                 <td align="center">
-                  <a href="<?php echo site_url(); ?>/admin/gallery/edit/<?php echo $data['u_id']; ?>" title="Edit" class="btn btn-primary btn-xs">
+                  <a href="<?php echo site_url(); ?>/admin/events/edit/<?php echo $data['u_id']; ?>" title="Edit" class="btn btn-primary btn-xs">
                     <i class="fa fa-pencil-square-o"></i>
                   </a> 
-                  <!-- <a href="<?php // echo site_url('faculty/leaves/delete/'.$events[$i]['faculty_leaveid']); ?>" title="Delete" class="btn btn-danger btn-xs" onclick="return confirm('are you sure you want to delete?'); ">
+                  <a href="<?php // echo site_url('faculty/leaves/delete/'.$events[$i]['faculty_leaveid']); ?>" title="Delete" class="btn btn-danger btn-xs" onclick="return confirm('are you sure you want to delete?'); ">
                     <i class="fa fa-trash-o"></i>
-                  </a> -->
+                  </a>
                 </td>
               </tr>
               <?php } endif; ?>

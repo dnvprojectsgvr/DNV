@@ -137,5 +137,3 @@ $autoload['model'] = array();
 
 
 $autoload['libraries'] = array('database', 'email', 'session', 'upload');
-
-

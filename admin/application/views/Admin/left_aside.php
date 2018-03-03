@@ -141,8 +141,8 @@
                   </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="<?php echo site_url('Admin/document_exp'); ?>"><i class="fa fa-window-close-o"></i>Upload Pictures</a></li>
-                  <li><a href="<?php echo site_url('Admin/ckeck_loan'); ?>"><i class="fa fa-window-close-o"></i>View Pictures</a></li>
+                  <li><a href="<?php echo site_url('Admin/gallery/'); ?>"><i class="fa fa-window-close-o"></i>Upload Pictures</a></li>
+                  <li><a href="<?php echo site_url('Admin/gallery/view'); ?>"><i class="fa fa-window-close-o"></i>View Pictures</a></li>
                 </ul>
               </li>
               <li class="treeview">
@@ -183,7 +183,18 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          <?php echo $title; ?>
+          <?php
+          if (isset($title)) 
+          {
+            echo $title;          
+          }
+          else
+          {
+            $title = " ";
+            echo $title;
+          }
+
+          ?>
         </h1>
         <ol class="breadcrumb">
           <li><a href="<?php echo site_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
