@@ -21,75 +21,76 @@
 
 </head>
 
-
-<?php $this->load->view('Faculty/left_aside'); ?>
+<?php $this->load->view('admin/left_aside'); ?>
 <section class="content">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="box">
         <div class="box-body">
-          <form role="form" method="post" enctype="multipart/form-data">
-            <div class="panel">
-              <div class="panel-body">
-
-                <input type="hidden" name="id" class="form-control " placeholder="Enter assignment id" min="0" required="required" value="<?php echo $assignment[0]['id']; ?>">
-
-                <div class="col-md-4 form-group">
-                  <label>Start Date</label>
-                  <input type="text" name="srt_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask   value="<?php echo $assignment[0]['srt_date']; ?>">
+          <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <form action="" method="post">
+                <div class="col-md-4">
+                  <label>subject_assign Name</label>
+                  <input type="text" class="form-control" name="subject_assign_name" required="required" value="<?php // echo $subject_assign_name; ?>">
                 </div>
 
-                <div class="col-md-4 form-group">
-                  <label>Last Date</label>
-                  <input type="text" name="lst_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="<?php echo $assignment[0]['lst_date']; ?>">
+                <div class="col-md-2 form-group">
+                  <label> &nbsp;</label>
+                  <button type="submit" name="submit" value="submit" class="btn btn-primary pull-right form-control">
+                    Filter Data
+                  </button>
                 </div>
-
-                <div class="form-group col-md-4 ">
-                  <label>Picture</label>
-                  <input class="form-control" type="file" name="picture" />
-                </div>
-                <div class="form-group col-md-6">
-                  <label>Name of Assignment</label>
-                  <input class="form-control" type="text" name="name"  value="<?php echo $assignment[0]['name']; ?>"/>
-                </div>
-                
-                <div class="col-md-6 form-group">
-                  <label>Subject of Assignment</label>
-                  <select class="form-control selectpicker" data-live-search="true" name="subject_id" id="sub_id">
-                    <?php
-                    $selected = ($subject_id == 'all')?'selected':'';
-                    ?>
-                    <option value="" <?php echo $selected; ?>></option>
-                    <?php for($i=0; $i < count($subject); $i++)
-                    {
-                      $selected = ($subject_id == $subject[$i]['sd_id'])?'selected':'';
-                      ?>
-                      <option value="<?php echo $subject[$i]['sd_id']; ?>" <?php echo $selected; ?>>
-                        <?php echo $subject[$i]['sd_name']; ?>
-                      </option>
-                      <?php } ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label>Note</label>
-                    <input class="form-control" type="text" name="note" value="<?php echo $assignment[0]['note']; ?>"/>
-                  </div>
-
-
-
-                  <div class="col-md-12 form-group">
-                    <input type="submit" class="btn btn-primary pull-right " name="userSubmit" value="Add">
-                  </div>
-                </div>
-              </div>
             </form>
+          </div> -->
+          <div class="col-md-12 table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>ID <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'id'); ?></span></a></th>
+                  <th>Faculty Name <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'subject_assign_name'); ?></span></a></th>
+                  <th>subject_assign Name <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'subject_assign_name'); ?></span></a></th>
+                 
+                  <th>Academic Year</th>
+                  <th>Action</th>     
+                </tr>
+              </thead>
+              <tbody>
+               
+
+                <?php for($i=0; $i<count($subject_assign); $i++) {   ?>
+                <tr>
+                  <td><?php echo $i+1; ?></td>
+                  <td><?php echo $subject_assign[$i]['faculty_id']; ?></td>
+                  <td><?php echo $subject_assign[$i]['subject_id']; ?></td>                  
+                  <td><?php echo $subject_assign[$i]['academic_id']; ?></td>
+
+                  <td align="center">
+                    <a href="<?php echo site_url('admin/subject_assign/edit/'.$subject_assign[$i]['faculty_id']); ?>" title="Edit" class="btn btn-primary btn-xs">
+                      <i class="fa fa-pencil-square-o"></i>
+                    </a> 
+                    <a href="<?php echo site_url('admin/subject_assign/delete/'.$subject_assign[$i]['subject_id']); ?>" title="Delete" class="btn btn-danger btn-xs" onclick="return confirm('are you sure you want to delete?'); ">
+                      <i class="fa fa-trash-o"></i>
+                    </a> 
+                  </td>
+                </tr>
+                <?php }?>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3">Showing <?php echo $from_result; ?> to <?php echo $to_result; ?> of <?php echo $num_rows; ?> entries</td>
+                  <td colspan="4">
+                    <?php echo $this->pagination->create_links(); ?>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
           </div>
         </div>
       </div>
-
     </div>
-  </section>
+
+  </div>
+</section>
 </div>
 
 <footer class="main-footer">

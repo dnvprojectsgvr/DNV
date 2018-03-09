@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/timepicker/bootstrap-timepicker.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/selectpicker/select.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css'); ?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/datepicker3.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/datepicker3.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/skins/_all-skins.min.css'); ?>">
   <link rel="icon" href="<?php echo base_url('assets/dist/img/favicon.ico'); ?>" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/custom.css'); ?>">
@@ -29,15 +29,27 @@
         <div class="box-body">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <form action="" method="post">
-                <div class="col-md-4">
-                  <label>Start Date</label>
-                  <input type="text" class="form-control datepicker" name="date" required="required" value="<?php echo $srt_date; ?>" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
-                </div>
-                <div class="col-md-4">
-                  <label>Subject</label>
-                  <input type="text" class="form-control" name="suject" required="required" value="<?php echo $subject; ?>">
-                </div>
-                <div class="col-md-4 form-group">
+              <div class="col-md-4">
+                <label>Start Date</label>
+                <input type="text" class="form-control datepicker" name="date" required="required" value="<?php echo $srt_date; ?>" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
+              </div>
+              <div class="col-md-4 form-group">
+                <label>Subject of Assignment</label>
+                <select class="form-control selectpicker" data-live-search="true" name="subject_id" id="sub_id">
+                  <?php
+                  $selected = ($subject_id == 'all')?'selected':'All';
+                  ?>
+                  <option value="" <?php echo $selected; ?>> ALL</option>
+                  <?php for($i=0; $i < count($subject); $i++)
+                  {
+                    $selected = ($subject_id == $subject[$i]['subject_id'])?:'';
+                    ?>
+                    <option value="<?php echo $subject[$i]['sd_id']; ?>" <?php echo $selected; ?>>
+                      <?php echo $subject[$i]['sd_name']; ?>
+                    </option>
+                    <?php } ?>
+                  </select>
+                </div>                <div class="col-md-4 form-group">
                   <label>Status</label>
                   <select class="form-control selectpicker" name="status">
                     <option <?php if($status == 'all') { echo'selected'; } ?>>all</option>
@@ -50,72 +62,72 @@
                     Filter Data
                   </button>
                 </div>
-            </form>
-          </div>
-          <div class="col-md-12 table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Assignment ID <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'employee_leaveid'); ?></span></a></th>
-                <th>Start Date <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'leave_fromdate'); ?></span></a></th>
-                <th>Last Date <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'leave_fromdate'); ?></span></a></th>
-                <th>Subject<?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'leave_todate'); ?></span></a></th>
-                <th>Note</th>
-                <th>Name fo Assignment</th>
-                <th>Status <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'status'); ?></span></a></th>
-                <th>Action</th>     
-              </tr>
-            </thead>
-            <tbody>
-            <?php for($i=0; $i<count($assignment); $i++) { ?>
-              <tr>
-                <td><?php echo $assignment[$i]['id']; ?></td>
-                <td><?php echo $assignment[$i]['srt_date']; ?></td>
-                <td><?php echo $assignment[$i]['lst_date']; ?></td>
-                <td><?php echo $assignment[$i]['subject']; ?></td>
-                <td><?php echo nl2br($assignment[$i]['note']); ?></td>
-                <td><?php echo nl2br($assignment[$i]['name']); ?></td>
-                <td><?php echo $assignment[$i]['status']; ?></td>
-                <td align="center">
-                  <a href="<?php echo site_url('faculty/assignment/edit/'.$assignment[$i]['id']); ?>" title="Edit" class="btn btn-primary btn-xs">
-                    <i class="fa fa-pencil-square-o"></i>
-                  </a> 
-                  <a href="<?php echo site_url('faculty/assignment/delete/'.$assignment[$i]['id']); ?>" title="Delete" class="btn btn-danger btn-xs" onclick="return confirm('are you sure you want to delete?'); ">
-                    <i class="fa fa-trash-o"></i>
-                  </a> 
-                </td>
-              </tr>
-            <?php } ?>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="3">Showing <?php echo $from_result; ?> to <?php echo $to_result; ?> of <?php echo $num_rows; ?> entries</td>
-                <td colspan="4">
-                  <?php echo $this->pagination->create_links(); ?>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
+              </form>
+            </div>
+            <div class="col-md-12 table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Assignment ID <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'id'); ?></span></a></th>
+                    <th>Start Date <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'srt_date'); ?></span></a></th>
+                    <th>Last Date <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'lst_date'); ?></span></a></th>
+                    <th>Subject<?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'subject_id'); ?></span></a></th>
+                    <th>Note</th>
+                    <th>Name fo Assignment</th>
+                    <th>Status <?php $this->general_m->sort_link($url, $sort_column, $sort_order, 'status'); ?></span></a></th>
+                    <th>Action</th>     
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php for($i=0; $i<count($assignment); $i++) { ?>
+                  <tr>
+                    <td><?php echo $assignment[$i]['ass_id']; ?></td>
+                    <td><?php echo $assignment[$i]['ass_sratdate']; ?></td>
+                    <td><?php echo $assignment[$i]['ass_lstdate']; ?></td>
+                    <td><?php echo $assignment[$i]['ass_subname']; ?></td>
+                    <td><?php echo nl2br($assignment[$i]['asss_note']); ?></td>
+                    <td><?php echo nl2br($assignment[$i]['ass_name']); ?></td>
+                    <td><?php echo $assignment[$i]['ass_status']; ?></td>
+                    <td align="center">
+                      <a href="<?php echo site_url('faculty/assignment/edit/'.$assignment[$i]['ass_id']); ?>" title="Edit" class="btn btn-primary btn-xs">
+                        <i class="fa fa-pencil-square-o"></i>
+                      </a> 
+                      <a href="<?php echo site_url('faculty/assignment/delete/'.$assignment[$i]['ass_id']); ?>" title="Delete" class="btn btn-danger btn-xs" onclick="return confirm('are you sure you want to delete?'); ">
+                        <i class="fa fa-trash-o"></i>
+                      </a> 
+                    </td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3">Showing <?php echo $from_result; ?> to <?php echo $to_result; ?> of <?php echo $num_rows; ?> entries</td>
+                    <td colspan="4">
+                      <?php echo $this->pagination->create_links(); ?>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
           </div>
         </div>
-    </div>
-  </div>
+      </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 </div>
 
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Developed by</b><a href="<?php echo $this->session->portal_config['developer_web']; ?>"> <?php echo $this->session->portal_config['developer_name']; ?></a>
-    </div>
-    <strong>Copyright &copy; <?php echo date('Y'); ?>
-            <a href="<?php echo $this->session->portal_config['url']; ?>"><?php echo $this->session->portal_config['club_name']; ?></a>.
-    </strong> All rights
-    reserved.
-  </footer>
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Developed by</b><a href="<?php echo $this->session->portal_config['developer_web']; ?>"> <?php echo $this->session->portal_config['developer_name']; ?></a>
+  </div>
+  <strong>Copyright &copy; <?php echo date('Y'); ?>
+    <a href="<?php echo $this->session->portal_config['url']; ?>"><?php echo $this->session->portal_config['club_name']; ?></a>.
+  </strong> All rights
+  reserved.
+</footer>
 
-  <div class="control-sidebar-bg"></div>
+<div class="control-sidebar-bg"></div>
 
 </div>
 
@@ -135,7 +147,7 @@
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.extensions.js'); ?>"></script>
 <script type="text/javascript">
-    $("[data-mask]").inputmask();
+  $("[data-mask]").inputmask();
 </script>
 </body>
 </html>

@@ -21,75 +21,64 @@
 
 </head>
 
-
-<?php $this->load->view('Faculty/left_aside'); ?>
+<?php $this->load->view('admin/left_aside'); ?>
 <section class="content">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="box">
         <div class="box-body">
-          <form role="form" method="post" enctype="multipart/form-data">
-            <div class="panel">
-              <div class="panel-body">
+          <form method="post" action="<?php echo base_url() . "index.php/admin/subject/add"?>">
 
-                <input type="hidden" name="id" class="form-control " placeholder="Enter assignment id" min="0" required="required" value="<?php echo $assignment[0]['id']; ?>">
-
-                <div class="col-md-4 form-group">
-                  <label>Start Date</label>
-                  <input type="text" name="srt_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask   value="<?php echo $assignment[0]['srt_date']; ?>">
-                </div>
-
-                <div class="col-md-4 form-group">
-                  <label>Last Date</label>
-                  <input type="text" name="lst_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="<?php echo $assignment[0]['lst_date']; ?>">
-                </div>
-
-                <div class="form-group col-md-4 ">
-                  <label>Picture</label>
-                  <input class="form-control" type="file" name="picture" />
-                </div>
-                <div class="form-group col-md-6">
-                  <label>Name of Assignment</label>
-                  <input class="form-control" type="text" name="name"  value="<?php echo $assignment[0]['name']; ?>"/>
-                </div>
-                
-                <div class="col-md-6 form-group">
-                  <label>Subject of Assignment</label>
-                  <select class="form-control selectpicker" data-live-search="true" name="subject_id" id="sub_id">
-                    <?php
-                    $selected = ($subject_id == 'all')?'selected':'';
-                    ?>
-                    <option value="" <?php echo $selected; ?>></option>
-                    <?php for($i=0; $i < count($subject); $i++)
-                    {
-                      $selected = ($subject_id == $subject[$i]['sd_id'])?'selected':'';
-                      ?>
-                      <option value="<?php echo $subject[$i]['sd_id']; ?>" <?php echo $selected; ?>>
-                        <?php echo $subject[$i]['sd_name']; ?>
-                      </option>
-                      <?php } ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label>Note</label>
-                    <input class="form-control" type="text" name="note" value="<?php echo $assignment[0]['note']; ?>"/>
-                  </div>
+            <div class="col-md-6 form-group">
+             <label> Course Name</label>
+             <?php $attributes = 'id="course" class="form-control" ';
+             echo form_dropdown('course', $course, set_value('course'), $attributes); ?>
+           </div>
 
 
-
-                  <div class="col-md-12 form-group">
-                    <input type="submit" class="btn btn-primary pull-right " name="userSubmit" value="Add">
-                  </div>
-                </div>
-              </div>
-            </form>
+           <div class="col-md-6 form-group">
+            <label>Semester *</label>
+            <?php $attributes = 'id="semester" class="form-control"';
+            echo form_dropdown('data[semester_id]', $semester, set_value('semester'), $attributes); ?>
           </div>
-        </div>
-      </div>
 
+          <div class="col-md-6 form-group">
+            <label>Subject Name</label>
+            <input type="text" name="data[subjects_name]" class="form-control" placeholder="Enter name of Subject" required="required" value="<?php echo $subject[0]['subjects_name']; ?>">
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Criteria Marks</label>
+            <input type="text" name="data[criteria_marks]" class="form-control" placeholder="Enter Criteria Mark's for Subject " required="required" value="<?php echo $subject[0]['criteria_marks']; ?>">
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label for="semname">Is Practical *</label>
+            <select class="form-control" name="data[is_practical]" required="required">
+              <option value="1" selected> True </option>
+              <option value="0"> False </option>
+            </select>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label for="couname"> Stream Name</label>
+            <select class=" form-control" name="data[academic_id]" id="couname">
+             <option value="Null"> Please Select Academic Year </option>
+             <?php for($i=0; $i<count($academic); $i++) { ?>
+             <option value="<?php echo $academic[$i]['id']; ?>" "><?php echo $academic[$i]['from_date']; ?> | <?php echo $academic[$i]['to_date']; ?></option>
+             <?php } ?>
+           </select>
+         </div>
+
+         <div class="col-md-12 form-group">
+          <button type="type" class="btn btn-primary pull-right" name="submit" value="Submit">SUBMIT</button>
+        </div>
+      </form>
     </div>
-  </section>
+  </div>
+
+</div>
+</section>
 </div>
 
 <footer class="main-footer">
@@ -116,13 +105,33 @@
 <script src="<?php echo base_url('assets/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>
 
 <script src="<?php echo base_url('assets/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/plugins/selectpicker/select.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/dist/js/demo.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.extensions.js'); ?>"></script>
+
+
 <script type="text/javascript">
-  $("[data-mask]").inputmask();
-</script>
-</body>
-</html>
+  $('#course').change(function(){
+    var course_id = $(this).val();
+        // alert(course_id);
+        $("#semester > option").remove();
+        $.ajax({
+          type: "POST",
+          url: "<?php echo site_url('admin/subject/add_semester'); ?>",
+          data: {id: course_id},
+          dataType: 'json',
+          success:function(data){
+            $.each(data,function(k, v){
+              var opt = $('<option />');
+              opt.val(k);
+              opt.text(v);
+              $('#semester').append(opt);
+            });
+          }
+        });
+      });
+
+    </script>
+
+    </html>

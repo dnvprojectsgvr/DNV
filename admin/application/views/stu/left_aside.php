@@ -29,7 +29,7 @@
               </li>
                <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?php echo site_url('employee/setting'); ?>" class="btn btn-default btn-flat">Setting</a>
+                  <a href="<?php echo site_url('stu/setting'); ?>" class="btn btn-default btn-flat">Setting</a>
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo site_url('login/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
@@ -56,14 +56,13 @@
          <li class="treeview">
           <a href="#">
             <i class="fa fa-group"></i>
-            <span>Leaves</span>
+            <span>Assignments</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('employees/leaves/add'); ?>"><i class="fa fa-user-plus"></i>Request for Leave</a></li>
-            <li><a href="<?php echo site_url('employees/leaves'); ?>"><i class="ion ion-clipboard"></i>Leave Requests</a></li>
+            <li><a href="<?php echo site_url('assignment/'); ?>"><i class="fa fa-user-plus"></i>Check Assignments</a></li>
           </ul>
         </li>
 

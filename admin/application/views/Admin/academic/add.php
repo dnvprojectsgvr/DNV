@@ -16,34 +16,39 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/datepicker3.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/skins/_all-skins.min.css'); ?>">
-  <link rel="icon" href="<?php echo base_url('assets/dist/img/favicon.ico'); ?>" type="image/x-icon"> 
+  <link rel="icon" href="<?php echo base_url('assets/dist/img/favicon.ico'); ?>" type="image/x-icon">
+  <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/custom.css'); ?>">
+
 </head>
 
-<?php $this->load->view('stu/left_aside'); ?>
+<?php $this->load->view('admin/left_aside'); ?>
 <section class="content">
   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="box">
+        <div class="box-body">
+          <?php echo form_open(); ?>
 
-    <div class="col-md-12">
-      <div class="row">   
-        <div class="col-md-3">
-          <div class="small-box bg-aqua">
-            <div class="inner">
-             <h3><?php  echo $assignment ; ?></h3>
-             <p>Assignments Pending</p>
-           </div>
-           <div class="icon">
-            <a href="<?php // echo site_url('members/amenity_members'); ?>">
-              <i class="fa fa-bandcamp" style="color: #00a3cb;"></i>
-            </a>
+          <div class="col-md-6 form-group">
+            <label>From Date</label>
+            <input type="text" name="data[from_date]" class="form-control datepicker" placeholder="Enter From Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
           </div>
-          <a href="<?php  echo site_url('faculty/lecturereport'); ?>" class="small-box-footer">
-            View All Assignments <i class="fa fa-arrow-circle-right"></i>
-          </a>
+
+          <div class="col-md-6 form-group">
+            <label>To Date</label>
+            <input type="text" name="data[to_date]" class="form-control datepicker" placeholder="Enter To Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask>
+          </div>
+
+          <div class="col-md-12 form-group">
+            <button type="type" class="btn btn-primary pull-right" name="submit" value="Submit">SUBMIT</button>
+          </div>
+
+          <?php echo form_close(); ?>
         </div>
-      </div> 
+      </div>
     </div>
+
   </div>
-</div>
 </section>
 </div>
 
@@ -69,7 +74,14 @@
 <script src="<?php echo base_url('assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>
+
 <script src="<?php echo base_url('assets/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/dist/js/demo.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.extensions.js'); ?>"></script>
+<script type="text/javascript">
+  $("[data-mask]").inputmask();
+</script>
 </body>
 </html>

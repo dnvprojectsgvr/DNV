@@ -25,6 +25,13 @@ class Dashboard extends CI_Controller {
 	{
 		$data['login_data'] =  $this->session->login_data;
 		$data['title'] = 'student Dashboard';
+		$today = date('Y-m-d');
+
+
+		$query = $this->db->query("UPDATE `assignment` SET `status`='closed' WHERE `lst_date` < '$today' ");
+		$data['assignment'] = $this->db->get_where('assignment', array('status' => 'open'))->num_rows();
+
+
 		$this->load->view('stu/dashboard', $data);
 	}
 

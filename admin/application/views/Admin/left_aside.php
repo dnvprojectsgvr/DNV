@@ -61,11 +61,105 @@
           </form>
 
           <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">
+              MAIN NAVIGATION
+            </li>
+
             <li>
               <a href="<?php echo base_url(); ?>">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-cog"></i>
+                <span>Academic Setup</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-ge"></i> <span>Academic Year</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('Admin/academic/add'); ?>"><i class="fa fa-plus-circle"></i>Add Academic Year</a></li>
+                    <li><a href="<?php echo site_url('Admin/academic'); ?>"><i class="ion ion-clipboard"></i>View All Academic Year</a></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-ge"></i> <span>Stream</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('Admin/stream/add'); ?>"><i class="fa fa-plus-circle"></i>Add Stream</a></li>
+                    <li><a href="<?php echo site_url('Admin/stream'); ?>"><i class="ion ion-clipboard"></i>View All Stream</a></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-gg"></i> <span>Courses</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('Admin/course/add'); ?>"><i class="fa fa-window-close-o"></i>Add course</a></li>
+                    <li><a href="<?php echo site_url('Admin/course'); ?>"><i class="fa fa-window-close-o"></i>View Courses</a></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-gitlab"></i> <span>Semester</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('Admin/semester/add'); ?>"><i class="fa fa-window-close-o"></i>Add Semester</a></li>
+                    <li><a href="<?php echo site_url('Admin/semester'); ?>"><i class="fa fa-window-close-o"></i>View Semesters</a></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-connectdevelop"></i> <span>Subject</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('Admin/subject'); ?>"><i class="fa fa-window-close-o"></i>Add Subjects</a></li>
+                    <li><a href="<?php echo site_url('Admin/subject/detail'); ?>"><i class="fa fa-window-close-o"></i>View Subjects</a></li>
+                  </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-connectdevelop"></i> <span>Assign Subject</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="<?php echo site_url('Admin/subject_assign/'); ?>"><i class="fa fa-window-close-o"></i>Assign Subject to Faculty</a></li>
+                    <li><a href="<?php echo site_url('Admin/subject_assign/detail'); ?>"><i class="fa fa-window-close-o"></i>View Assigned Subjects</a></li>
+                  </ul>
+                </li>
+
+              </ul>          
             </li>
 
             <li class="treeview">
@@ -92,7 +186,6 @@
                     <li><a href="<?php echo site_url('student/student_feedback'); ?>"><i class="fa fa-circle-o"></i>Feedback From Students</a></li>
                   </ul>
                 </li>
-
               </ul>
             </li>
 
@@ -123,6 +216,7 @@
                 </li>
               </ul>
             </li>
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-bandcamp"></i>
@@ -145,6 +239,7 @@
                   <li><a href="<?php echo site_url('Admin/gallery/view'); ?>"><i class="fa fa-window-close-o"></i>View Pictures</a></li>
                 </ul>
               </li>
+
               <li class="treeview">
                 <a href="#">
                   <i class="fa fa-bullseye"></i> <span>Events</span>
@@ -170,34 +265,40 @@
                   <li><a href="<?php echo site_url('Admin/ckeck_loan'); ?>"><i class="fa fa-window-close-o"></i>View Notice</a></li>
                 </ul>
               </li>
-              <li><a href="<?php echo site_url('Faculty/leaves'); ?>"><i class="ion ion-clipboard"></i>Faculty Leave</a></li>
-            </ul>
+            </ul>          
           </li>
-        </ul>
-      </section>
-      <!-- /.sidebar -->
-      <?php } ?>
-    </aside>
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          <?php
-          if (isset($title)) 
-          {
-            echo $title;          
-          }
-          else
-          {
-            $title = " ";
-            echo $title;
-          }
 
-          ?>
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="<?php echo site_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active"><?php  echo $title; ?></li>
-        </ol>
-      </section>
+
+          <li>
+            <a href="<?php echo site_url('Admin/subject/allot'); ?>"><i class="ion ion-clipboard"></i>Allot Subjects</a>
+          </li>
+
+        </ul>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+    <?php } ?>
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <?php
+        if (isset($title)) 
+        {
+          echo $title;          
+        }
+        else
+        {
+          $title = " ";
+          echo $title;
+        }
+
+        ?>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="<?php echo site_url(); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><?php  echo $title; ?></li>
+      </ol>
+    </section>

@@ -21,75 +21,53 @@
 
 </head>
 
-
-<?php $this->load->view('Faculty/left_aside'); ?>
+<?php $this->load->view('admin/left_aside'); ?>
 <section class="content">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="box">
         <div class="box-body">
-          <form role="form" method="post" enctype="multipart/form-data">
-            <div class="panel">
-              <div class="panel-body">
+          <?php echo form_open(); ?>
 
-                <input type="hidden" name="id" class="form-control " placeholder="Enter assignment id" min="0" required="required" value="<?php echo $assignment[0]['id']; ?>">
+          <div class="col-md-6 form-group">
+            <label for="couname"> Stream Name</label>
+           <select class=" form-control" name="data[course_id]" id="couname">
+             <?php for($i=0; $i<count($course); $i++) { ?>
+             <option value="<?php echo $course[$i]['id']; ?>" "><?php echo $course[$i]['course_name']; ?></option>
+             <?php } ?>
+           </select>
+         </div>
 
-                <div class="col-md-4 form-group">
-                  <label>Start Date</label>
-                  <input type="text" name="srt_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask   value="<?php echo $assignment[0]['srt_date']; ?>">
-                </div>
-
-                <div class="col-md-4 form-group">
-                  <label>Last Date</label>
-                  <input type="text" name="lst_date" class="form-control datepicker" placeholder="Enter assignment Date" min="0" required="required" data-inputmask="'alias': 'yyyy-mm-dd'" data-mask value="<?php echo $assignment[0]['lst_date']; ?>">
-                </div>
-
-                <div class="form-group col-md-4 ">
-                  <label>Picture</label>
-                  <input class="form-control" type="file" name="picture" />
-                </div>
-                <div class="form-group col-md-6">
-                  <label>Name of Assignment</label>
-                  <input class="form-control" type="text" name="name"  value="<?php echo $assignment[0]['name']; ?>"/>
-                </div>
-                
-                <div class="col-md-6 form-group">
-                  <label>Subject of Assignment</label>
-                  <select class="form-control selectpicker" data-live-search="true" name="subject_id" id="sub_id">
-                    <?php
-                    $selected = ($subject_id == 'all')?'selected':'';
-                    ?>
-                    <option value="" <?php echo $selected; ?>></option>
-                    <?php for($i=0; $i < count($subject); $i++)
-                    {
-                      $selected = ($subject_id == $subject[$i]['sd_id'])?'selected':'';
-                      ?>
-                      <option value="<?php echo $subject[$i]['sd_id']; ?>" <?php echo $selected; ?>>
-                        <?php echo $subject[$i]['sd_name']; ?>
-                      </option>
-                      <?php } ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label>Note</label>
-                    <input class="form-control" type="text" name="note" value="<?php echo $assignment[0]['note']; ?>"/>
-                  </div>
+         <!--  <div class="col-md-6 form-group">
+            <label>Course Name</label>
+            <input type="text" name="data[course_name]" class="form-control" placeholder="Enter name of Stream" required="required">
+          </div> -->
 
 
+          <div class="col-md-4 form-group">
+            <label for="semname">Semester *</label>
+            <select class="form-control" name="data[semester_name]" id="semname" required="required">
+             <option value="0" <?php if($semester[0]['id']=='0') { echo"selected"; } ?>>Select Semester</option>
+             <option selected="" value="Semester 1" <?php if($semester[0]['id']=='Semester 1') { echo"selected"; } ?>>Semester 1</option>
+             <option value="Semester 2" <?php if($semester[0]['id']=='Semester 2') { echo"selected"; } ?>>Semester 2</option>
+             <option value="Semester 3" <?php if($semester[0]['id']=='Semester 3') { echo"selected"; } ?>>Semester 3</option>
+             <option value="Semester 4" <?php if($semester[0]['id']=='Semester 4') { echo"selected"; } ?>>Semester 4</option>
+             <option value="Semester 5" <?php if($semester[0]['id']=='Semester 5') { echo"selected"; } ?>>Semester 5</option>
+             <option value="Semester 6" <?php if($semester[0]['id']=='Semester 6') { echo"selected"; } ?>>Semester 6</option>
+           </select>
+         </div>
 
-                  <div class="col-md-12 form-group">
-                    <input type="submit" class="btn btn-primary pull-right " name="userSubmit" value="Add">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+
+         <div class="col-md-12 form-group">
+          <button type="type" class="btn btn-primary pull-right" name="submit" value="Submit">SUBMIT</button>
         </div>
-      </div>
 
+        <?php echo form_close(); ?>
+      </div>
     </div>
-  </section>
+
+  </div>
+</section>
 </div>
 
 <footer class="main-footer">
@@ -116,7 +94,6 @@
 <script src="<?php echo base_url('assets/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>
 
 <script src="<?php echo base_url('assets/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/plugins/selectpicker/select.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/dist/js/demo.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
@@ -124,5 +101,37 @@
 <script type="text/javascript">
   $("[data-mask]").inputmask();
 </script>
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+$("#couname").change(function(e)
+{ 
+var couname = $("#couname").val();
+var semname=$("#semname").val();
+var msgbox = $("#counerr");
+$.ajax({
+    type: "POST",  
+    url: "semester_check.php",  
+    data: "couname="+couname+"&semname="+semname,
+    success: function(msg){
+   $("#counerr").ajaxComplete(function(event, request){
+  if(msg == 'OK')
+  {
+      $("#couname").attr('style','border:1px solid #008000');
+       msgbox.html('available');
+  }  
+  else  
+  {  
+     $("#couname").attr('style','border:1px solid #FF0000');
+     msgbox.html(msg);
+  }  
+   });
+   } 
+  }); 
+});
+});
+</script>
+
 </body>
 </html>

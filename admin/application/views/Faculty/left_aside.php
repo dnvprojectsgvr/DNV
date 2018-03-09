@@ -96,6 +96,21 @@
           </ul>
         </li>
 
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-tasks"></i>
+            <span>To-Do</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo site_url('faculty/todo/add'); ?>"><i class="fa fa-tasks"></i>Add To-Do</a></li>
+            <li><a href="<?php echo site_url('faculty/todo'); ?>"><i class="ion ion-clipboard"></i>View To-Do</a></li>
+          </ul>
+        </li>
+
       </ul>
     </section>
     

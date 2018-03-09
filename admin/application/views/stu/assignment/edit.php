@@ -21,7 +21,6 @@
 
 </head>
 
-
 <?php $this->load->view('Faculty/left_aside'); ?>
 <section class="content">
   <div class="row">
@@ -52,44 +51,30 @@
                   <label>Name of Assignment</label>
                   <input class="form-control" type="text" name="name"  value="<?php echo $assignment[0]['name']; ?>"/>
                 </div>
-                
-                <div class="col-md-6 form-group">
+                 <div class="form-group col-md-6">
                   <label>Subject of Assignment</label>
-                  <select class="form-control selectpicker" data-live-search="true" name="subject_id" id="sub_id">
-                    <?php
-                    $selected = ($subject_id == 'all')?'selected':'';
-                    ?>
-                    <option value="" <?php echo $selected; ?>></option>
-                    <?php for($i=0; $i < count($subject); $i++)
-                    {
-                      $selected = ($subject_id == $subject[$i]['sd_id'])?'selected':'';
-                      ?>
-                      <option value="<?php echo $subject[$i]['sd_id']; ?>" <?php echo $selected; ?>>
-                        <?php echo $subject[$i]['sd_name']; ?>
-                      </option>
-                      <?php } ?>
-                    </select>
-                  </div>
+                  <input class="form-control" type="text" name="subject"  value="<?php echo $assignment[0]['subject']; ?>"/>
+                </div>
 
-                  <div class="form-group col-md-6">
-                    <label>Note</label>
-                    <input class="form-control" type="text" name="note" value="<?php echo $assignment[0]['note']; ?>"/>
-                  </div>
+                <div class="form-group col-md-6">
+                  <label>Note</label>
+                  <input class="form-control" type="text" name="note" value="<?php echo $assignment[0]['note']; ?>"/>
+                </div>
 
+                
 
-
-                  <div class="col-md-12 form-group">
-                    <input type="submit" class="btn btn-primary pull-right " name="userSubmit" value="Add">
-                  </div>
+                <div class="col-md-12 form-group">
+                  <input type="submit" class="btn btn-primary pull-right " name="userSubmit" value="Add">
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
-
     </div>
-  </section>
+
+  </div>
+</section>
 </div>
 
 <footer class="main-footer">
@@ -116,7 +101,6 @@
 <script src="<?php echo base_url('assets/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>
 
 <script src="<?php echo base_url('assets/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/plugins/selectpicker/select.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/dist/js/demo.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>

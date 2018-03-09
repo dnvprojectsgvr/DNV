@@ -16,34 +16,57 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/datepicker3.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/skins/_all-skins.min.css'); ?>">
-  <link rel="icon" href="<?php echo base_url('assets/dist/img/favicon.ico'); ?>" type="image/x-icon"> 
+  <link rel="icon" href="<?php echo base_url('assets/dist/img/favicon.ico'); ?>" type="image/x-icon">
+  <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/custom.css'); ?>">
+
 </head>
 
-<?php $this->load->view('stu/left_aside'); ?>
+<?php $this->load->view('Faculty/left_aside'); ?>
 <section class="content">
   <div class="row">
+    <div class="col-lg-8 col-md-12 col-sm-8 col-xs-8">
+      <div class="box">
+        <div class="box-body">
+          <?php echo form_open(); ?>
 
-    <div class="col-md-12">
-      <div class="row">   
-        <div class="col-md-3">
-          <div class="small-box bg-aqua">
-            <div class="inner">
-             <h3><?php  echo $assignment ; ?></h3>
-             <p>Assignments Pending</p>
-           </div>
-           <div class="icon">
-            <a href="<?php // echo site_url('members/amenity_members'); ?>">
-              <i class="fa fa-bandcamp" style="color: #00a3cb;"></i>
-            </a>
+
+          <div class="col-md-4 form-group">
+            <label>name</label>
+            <input type="text" name="todo[name]" class="form-control" placeholder="Enter Name" required="required">
           </div>
-          <a href="<?php  echo site_url('faculty/lecturereport'); ?>" class="small-box-footer">
-            View All Assignments <i class="fa fa-arrow-circle-right"></i>
-          </a>
+
+
+          <div class="col-md-4 form-group">
+            <label>Set Priority </label>
+            <select class="form-control" name="todo[priority]" >
+              <option value="None">None</option>
+              <option value="high">high</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+              
+            </select>
+          </div>
+
+
+
+          <div class="col-md-8 form-group">
+            <label>Description</label>
+            <textarea class="form-control" name="todo[description]" rows="4" style="resize: none;" placeholder="Enter Description..." maxlength="1024"></textarea>
+          </div>
+
+
+          <div class="col-md-12 form-group">
+            <button type="type" class="btn btn-primary pull-right" name="submit" value="Submit">SUBMIT</button>
+          </div>
+
+
+
+          <?php echo form_close(); ?>
         </div>
-      </div> 
+      </div>
     </div>
+
   </div>
-</div>
 </section>
 </div>
 
@@ -69,7 +92,14 @@
 <script src="<?php echo base_url('assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>
+
 <script src="<?php echo base_url('assets/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/dist/js/demo.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.extensions.js'); ?>"></script>
+<script type="text/javascript">
+  $("[data-mask]").inputmask();
+</script>
 </body>
 </html>

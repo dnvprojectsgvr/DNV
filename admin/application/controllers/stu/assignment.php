@@ -39,8 +39,7 @@ class assignment extends CI_Controller {
 		}
 
 		$data['title'] = "List of Assignments";
-		$data['login_data'] =  $this->session->login_data;
-		$fac_id = $data['login_data']['user_id'];
+
 		$data['srt_date'] = $srt_date;
 		$data['subject'] = $subject;
 		$data['status'] = $status;
@@ -101,38 +100,48 @@ class assignment extends CI_Controller {
 			$this->db->order_by($sort_column, $sort_order);
 		}
 		$this->db->limit($config['per_page'], $page_no);
-		
-		$data['assignmentt'] = $this->db->get('assignment')->result_array();
-
-
+		$data['assignment'] = $this->db->get('assignment')->result_array();
 
 		$data['num_rows'] = $num_rows;
 		$data['from_result'] = $page_no+1;
 		$data['to_result'] = ($num_rows > $page_no+$config['per_page'])?$page_no+$config['per_page']:$num_rows;
-		$data['subject'] = $this->db->query("select  sd.id as sd_id, sd.subjects_name as sd_name, fs.faculty_id as fs_facid from `subjects_details`  sd INNER JOIN `faculty_subjects` fs on sd.id = fs.subject_id and fs.faculty_id= '$fac_id' ")->result_array();
-
-
-		$data['assignment'] = $this->db->query("select  ag.id as ass_id, ag.srt_date as ass_sratdate, ag.lst_date as ass_lstdate, ag.name as ass_name, ag.note as asss_note, ag.status as ass_status, ag.subject_id as ass_subid, sd.subjects_name as ass_subname from `assignment` ag INNER JOIN `subjects_details` sd on ag.subject_id=sd.id and ag.faculty_id= '$fac_id'")->result_array();
-
-
-		// $dataa=$this->db->query("select  ag.id as ass_id, ag.srt_date as ass_sratdate, ag.lst_date as ass_lstdate, ag.name as ass_name, ag.note as asss_note, ag.status as ass_status, ag.subject_id as ass_subid, sd.subjects_name as ass_subname from `assignment` ag INNER JOIN `subjects_details` sd on ag.subject_id=sd.id") ->result_array();  
-
-
-		$this->load->view('faculty/assignment/index',$data);
+		
+		$this->load->view('faculty/assignment/index', $data);
 	}
+
+
+	
+	/* public function add()
+	{
+		$data['title'] = "Add Assignment";
+		$data['login_data'] =  $this->session->login_data;
+
+		// var_dump($data['login_data']);
+		// exit();
+
+
+		if($this->input->post('submit'))
+		{
+			$post_data = $this->input->post('data');
+			$post_data['faculty_id'] = $data['login_data']['user_id'];
+			$this->db->insert('assignment', $post_data);
+			redirect('faculty/assignment/index');
+		}
+		$this->load->view('faculty/assignment/add', $data);
+	}*/
+
+
+
+
 
 	function add()
 	{
 		$data['title'] = "Add Assignment";
 		$data['login_data'] =  $this->session->login_data;
 
-		$fac_id = $data['login_data']['user_id'];
-		
-		//$data['subject'] = $this->db->query("select  sd.id as sd_id, sd.subjects_name as sd_name, fs.faculty_id as fs_facid from `subjects_details`  sd INNER JOIN `faculty_subjects` fs on sd.id = fs.subject_id  ")->result_array();
-		
-		$data['subject'] = $this->db->query("select  sd.id as sd_id, sd.subjects_name as sd_name, fs.faculty_id as fs_facid from `subjects_details`  sd INNER JOIN `faculty_subjects` fs on sd.id = fs.subject_id and fs.faculty_id= '$fac_id' ")->result_array();
-		if($this->input->post('userSubmit'))
-		{
+
+		if($this->input->post('userSubmit')){
+
             //Check whether user upload picture
 			if(!empty($_FILES['picture']['name'])){
 				$config['upload_path'] = 'uploads/assignment/';
@@ -152,6 +161,7 @@ class assignment extends CI_Controller {
 			}else{
 				$picture = '';
 			}
+
             //Prepare array of user data
 			$userData = array(
 				'faculty_id' => $data['login_data']['user_id'],
@@ -159,10 +169,12 @@ class assignment extends CI_Controller {
 				'note' => $this->input->post('note'),
 				'srt_date' => $this->input->post('srt_date'),
 				'lst_date' => $this->input->post('lst_date'),
-				'subject_id' => $this->input->post('subject_id'),
+				'subject' => $this->input->post('subject'),
 
 				'picture' => $picture
 			);
+
+
             //Pass user data to model
 			$insertUserData = $this->user->insert($userData);
 
@@ -174,6 +186,7 @@ class assignment extends CI_Controller {
 			}
 			redirect('faculty/assignment/index');
 		}
+		
         //Form for adding user data
 		$this->load->view('faculty/assignment/add', $data);
 	}
@@ -183,12 +196,7 @@ class assignment extends CI_Controller {
 		$data['title'] = "Edit Assignment";
 		$data['login_data'] =  $this->session->login_data;
 
-		$faculty_id = $data['login_data']['user_id'];
-		echo $faculty_id;
-		exit();
-
-		$data['subject'] = $this->db->query('select  sd.id as sd_id, sd.subjects_name as sd_name, fs.faculty_id as fs_facid from `subjects_details`  sd INNER JOIN `faculty_subjects` fs on sd.id = fs.subject_id AND fs.faculty_id = $faculty_id')->result_array();
-		if($this->input->post('userSubmit')){	
+		if($this->input->post('userSubmit')){
 
             //Check whether user upload picture
 			if(!empty($_FILES['picture']['name'])){

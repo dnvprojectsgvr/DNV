@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2018 at 05:18 PM
+-- Generation Time: Mar 09, 2018 at 04:56 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `dnv`
 --
+CREATE DATABASE IF NOT EXISTS `dnv` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `dnv`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `academic_year`
+--
+
+CREATE TABLE `academic_year` (
+  `id` int(5) NOT NULL,
+  `from_date` date NOT NULL,
+  `to_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `academic_year`
+--
+
+INSERT INTO `academic_year` (`id`, `from_date`, `to_date`) VALUES
+(1, '2017-06-01', '2018-04-30');
 
 -- --------------------------------------------------------
 
@@ -37,28 +58,28 @@ CREATE TABLE `assignment` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `status` varchar(12) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'open' COMMENT '1=Active, 0=Inactive',
-  `subject` int(11) NOT NULL
+  `subject_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `assignment`
 --
 
-INSERT INTO `assignment` (`id`, `faculty_id`, `srt_date`, `lst_date`, `name`, `note`, `picture`, `created`, `modified`, `status`, `subject`) VALUES
-(1, 'ramesh12', '2018-02-01', '2018-03-01', 'test', 'manager@example.com', '', '2018-03-02 21:42:05', '2018-03-02 21:42:05', 'closed', 0),
-(2, 'ramesh12', '2018-02-20', '2018-03-06', 'test 2', 'admin@example.com', '', '2018-03-02 21:43:06', '2018-03-02 21:43:06', 'deleted', 0),
-(3, 'ramesh12', '2018-02-10', '2018-02-21', 'test 3', 'svirajpal@gmail.com', '', '2018-03-02 21:43:49', '2018-03-02 21:43:49', 'closed', 0),
-(4, 'ramesh12', '2018-02-02', '2018-03-02', 'test 4', '8401418867', 'data.pdf', '2018-03-02 21:44:59', '2018-03-02 21:44:59', 'closed', 0),
-(5, 'ramesh12', '2018-02-01', '2018-03-04', 'nkvhjvjhv', 'jhvjhvjhv', 'check.pdf', '2018-03-02 21:47:34', '2018-03-02 21:47:34', 'deleted', 0),
-(6, 'ramesh12', '2018-03-01', '2018-03-24', 'IBPS part 4', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt8.pdf', '2018-03-03 18:32:19', '2018-03-03 18:32:19', 'closed', 0),
-(7, 'ramesh12', '2018-02-27', '2018-03-03', 'test 4', 'this was a test 2', '', '2018-03-03 18:32:03', '2018-03-03 18:32:03', 'open', 0),
-(8, 'ramesh12', '2018-03-01', '2018-03-15', 'test 6', 'this was a test with faculty id', 'jijosa_waiting_ticket14APR_2018.pdf', '2018-03-02 22:12:40', '2018-03-02 22:12:40', 'open', 0),
-(9, 'ramesh12', '2018-03-01', '2018-03-15', 'test 5', 'this was a test with faculty id (2)', 'ssc_sp_payment.pdf', '2018-03-02 22:16:17', '2018-03-02 22:16:17', 'open', 0),
-(10, 'ramesh12', '2018-03-09', '2018-03-20', 'nkvhjvjhvsfedsd', 'sdsfghjkhhg', 'check3.pdf', '2018-03-02 22:33:55', '2018-03-02 22:33:55', 'closed', 0),
-(11, 'ramesh12', '2018-03-13', '2018-02-25', 'test 2', 'this was a test with faculty id', 'IBPS_CRP_SPL_VII_Detail_Advt1.pdf', '2018-03-02 22:34:33', '2018-03-02 22:34:33', 'closed', 0),
-(12, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 2 edit', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt2.pdf', '2018-03-03 18:00:29', '2018-03-03 18:00:29', 'closed', 0),
-(13, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 3', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt4.pdf', '2018-03-03 18:07:30', '2018-03-03 18:07:30', 'closed', 0),
-(14, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 3', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt5.pdf', '2018-03-03 18:08:42', '2018-03-03 18:08:42', 'closed', 0);
+INSERT INTO `assignment` (`id`, `faculty_id`, `srt_date`, `lst_date`, `name`, `note`, `picture`, `created`, `modified`, `status`, `subject_id`) VALUES
+(1, 'ramesh12', '2018-02-01', '2018-03-01', 'test', 'manager@example.com', '', '2018-03-02 21:42:05', '2018-03-02 21:42:05', 'closed', 1),
+(2, 'ramesh12', '2018-02-20', '2018-03-06', 'test 2', 'admin@example.com', '', '2018-03-02 21:43:06', '2018-03-02 21:43:06', 'deleted', 1),
+(3, 'ramesh12', '2018-02-10', '2018-02-21', 'test 3', 'svirajpal@gmail.com', '', '2018-03-02 21:43:49', '2018-03-02 21:43:49', 'closed', 6),
+(4, 'ramesh12', '2018-02-02', '2018-03-02', 'test 4', '8401418867', 'data.pdf', '2018-03-02 21:44:59', '2018-03-02 21:44:59', 'closed', 1),
+(5, 'ramesh12', '2018-02-01', '2018-03-04', 'nkvhjvjhv', 'jhvjhvjhv', 'check.pdf', '2018-03-02 21:47:34', '2018-03-02 21:47:34', 'closed', 1),
+(6, 'ramesh12', '2018-03-01', '2018-03-24', 'IBPS part 4', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt8.pdf', '2018-03-03 18:32:19', '2018-03-03 18:32:19', 'closed', 6),
+(7, 'ramesh12', '2018-02-27', '2018-03-03', 'test 4', 'this was a test 2', '', '2018-03-03 18:32:03', '2018-03-03 18:32:03', 'closed', 1),
+(8, 'ramesh12', '2018-03-01', '2018-03-15', 'test 6', 'this was a test with faculty id', 'jijosa_waiting_ticket14APR_2018.pdf', '2018-03-02 22:12:40', '2018-03-02 22:12:40', 'open', 6),
+(9, 'ramesh12', '2018-03-01', '2018-03-15', 'test 5', 'this was a test with faculty id (2)', 'ssc_sp_payment.pdf', '2018-03-02 22:16:17', '2018-03-02 22:16:17', 'open', 1),
+(10, 'ramesh12', '2018-03-09', '2018-03-20', 'nkvhjvjhvsfedsd', 'sdsfghjkhhg', 'check3.pdf', '2018-03-02 22:33:55', '2018-03-02 22:33:55', 'closed', 1),
+(11, 'ramesh12', '2018-03-13', '2018-02-25', 'test 2', 'this was a test with faculty id', 'IBPS_CRP_SPL_VII_Detail_Advt1.pdf', '2018-03-02 22:34:33', '2018-03-02 22:34:33', 'closed', 6),
+(12, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 2 edit', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt2.pdf', '2018-03-03 18:00:29', '2018-03-03 18:00:29', 'closed', 6),
+(13, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 3', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt4.pdf', '2018-03-03 18:07:30', '2018-03-03 18:07:30', 'closed', 6),
+(14, 'ramesh12', '2018-02-01', '2018-03-01', 'IBPS part 3', 'this was a test', 'IBPS_CRP_SPL_VII_Detail_Advt5.pdf', '2018-03-03 18:08:42', '2018-03-03 18:08:42', 'closed', 6);
 
 -- --------------------------------------------------------
 
@@ -78,7 +99,8 @@ CREATE TABLE `course_details` (
 
 INSERT INTO `course_details` (`id`, `course_name`, `stream_id`) VALUES
 (1, 'BCA', 1),
-(2, 'BBA', 2);
+(2, 'BBA', 2),
+(8, 'MSCIT', 1);
 
 -- --------------------------------------------------------
 
@@ -181,7 +203,8 @@ CREATE TABLE `faculty_details` (
 --
 
 INSERT INTO `faculty_details` (`faculty_id`, `f_name`, `m_name`, `l_name`, `full_name`, `father_name`, `gender`, `mob_no`, `email_id`, `dob`, `status`) VALUES
-('ramesh12', 'ramesh', 'ram', 'chouhan', 'ramesh  chouhan', 'suresh', 'male', 9843789754, 'ramesh@gmail.com', '1999-07-05', 'ACTIVE');
+('ramesh12', 'ramesh', 'ram', 'chouhan', 'ramesh  chouhan', 'suresh', 'male', 9843789754, 'ramesh@gmail.com', '1999-07-05', 'ACTIVE'),
+('viraj12', 'viraj', 'pal', 'singh', 'xyz', 'abc', 'male', 2151205151, 'hfvvvfhv@gmail.com', '2018-03-06', 'ACTIVE');
 
 -- --------------------------------------------------------
 
@@ -205,9 +228,11 @@ CREATE TABLE `faculty_leaves` (
 
 INSERT INTO `faculty_leaves` (`faculty_leaveid`, `faculty_id`, `leave_fromdate`, `leave_todate`, `leave_reason`, `status`, `requested_datetime`) VALUES
 (14, 'ramesh12', '2018-02-01', '2018-02-05', 'college trip', 'deleted', '0000-00-00 00:00:00'),
-(15, 'ramesh12', '2018-01-30', '2018-03-01', 'test\r\n', 'pending', '0000-00-00 00:00:00'),
+(15, 'ramesh12', '2018-01-30', '2018-03-01', 'test\r\n', 'deleted', '0000-00-00 00:00:00'),
 (16, 'ramesh12', '2018-01-30', '2018-02-10', 'this is also a test', 'pending', '2018-02-11 13:53:47'),
-(17, 'ramesh12', '2018-03-01', '2018-03-31', 'thigjfcbtrdvy', 'approved', '2018-03-01 09:38:37');
+(17, 'ramesh12', '2018-03-01', '2018-03-31', 'thigjfcbtrdvy', 'approved', '2018-03-01 09:38:37'),
+(18, 'ramesh12', '0000-00-00', '0000-00-00', '', 'pending', '2018-03-04 09:46:56'),
+(19, 'ramesh12', '2018-03-01', '2018-03-16', 'test', 'pending', '2018-03-05 18:15:11');
 
 -- --------------------------------------------------------
 
@@ -218,8 +243,17 @@ INSERT INTO `faculty_leaves` (`faculty_leaveid`, `faculty_id`, `leave_fromdate`,
 CREATE TABLE `faculty_subjects` (
   `id` int(10) NOT NULL,
   `faculty_id` varchar(60) NOT NULL,
-  `subject_id` int(10) NOT NULL
+  `subject_id` int(10) NOT NULL,
+  `academic_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty_subjects`
+--
+
+INSERT INTO `faculty_subjects` (`id`, `faculty_id`, `subject_id`, `academic_id`) VALUES
+(6, 'ramesh12', 7, 1),
+(7, 'viraj12', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -238,7 +272,7 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`u_id`, `name`, `class`) VALUES
-(1, 'test', ' \r\n                     \r\n                    this is a test of gallery with agents of shield.                                     ');
+(1, 'test', 'this is a test of gallery with agents of shield.                               ');
 
 -- --------------------------------------------------------
 
@@ -283,9 +317,9 @@ CREATE TABLE `lecture_report` (
 --
 
 INSERT INTO `lecture_report` (`id`, `faculty_id`, `subject`, `note`, `date`, `no_of_pre_student`, `status`, `reporttime`) VALUES
-(1, 'ramesh12', 0, 'This is a test', '2018-02-07', 14, 'approved', '2018-02-11 13:55:22'),
-(2, 'ramesh12', 0, 'this is also a test', '2018-02-07', 15, 'rejected', '2018-02-11 13:55:42'),
-(3, 'ramesh12', 0, 'test', '2018-02-17', 50, 'pending', '2018-02-11 14:08:48');
+(1, 'ramesh12', 1, 'This is a test', '2018-02-07', 14, 'approved', '2018-02-11 13:55:22'),
+(2, 'ramesh12', 2, 'this is also a test', '2018-02-07', 15, 'rejected', '2018-02-11 13:55:42'),
+(3, 'ramesh12', 6, 'test', '2018-02-17', 50, 'pending', '2018-02-11 14:08:48');
 
 -- --------------------------------------------------------
 
@@ -329,7 +363,9 @@ CREATE TABLE `semester_details` (
 
 INSERT INTO `semester_details` (`id`, `semester_name`, `course_id`) VALUES
 (1, 'SEM-1', 1),
-(2, 'SEM-2', 2);
+(2, 'SEM-1', 2),
+(3, 'Semester 6', 2),
+(4, 'Semester 1', 8);
 
 -- --------------------------------------------------------
 
@@ -348,7 +384,8 @@ CREATE TABLE `stream_details` (
 
 INSERT INTO `stream_details` (`id`, `stream_name`) VALUES
 (1, 'SCIENCE'),
-(2, 'COMMERCE');
+(2, 'COMMERCE'),
+(6, 'ARTS1');
 
 -- --------------------------------------------------------
 
@@ -405,17 +442,21 @@ CREATE TABLE `subjects_details` (
   `subjects_name` varchar(60) NOT NULL,
   `criteria_marks` int(5) NOT NULL,
   `is_practical` tinyint(1) NOT NULL,
-  `semester_id` int(10) NOT NULL
+  `semester_id` int(10) NOT NULL,
+  `academic_id` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'FREE'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjects_details`
 --
 
-INSERT INTO `subjects_details` (`id`, `subjects_name`, `criteria_marks`, `is_practical`, `semester_id`) VALUES
-(1, 'PHP', 0, 1, 1),
-(2, 'ACCOUNTS', 0, 0, 2),
-(6, 'vb.net', 0, 1, 1);
+INSERT INTO `subjects_details` (`id`, `subjects_name`, `criteria_marks`, `is_practical`, `semester_id`, `academic_id`, `status`) VALUES
+(1, 'PHP', 40, 1, 1, 1, 'FREE'),
+(2, 'ACCOUNTS', 30, 0, 2, 1, 'FREE'),
+(6, 'vb.net', 40, 1, 1, 1, 'FREE'),
+(7, 'eco', 30, 0, 3, 1, 'alloted'),
+(8, 'C#', 40, 1, 4, 1, 'alloted');
 
 -- --------------------------------------------------------
 
@@ -429,17 +470,26 @@ CREATE TABLE `todos` (
   `description` varchar(50) NOT NULL,
   `user_id` varchar(10) NOT NULL,
   `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` varchar(12) NOT NULL DEFAULT 'open'
+  `status` varchar(12) NOT NULL DEFAULT 'open',
+  `priority` varchar(10) NOT NULL DEFAULT 'high'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `todos`
 --
 
-INSERT INTO `todos` (`id`, `name`, `description`, `user_id`, `create_date`, `status`) VALUES
-(1, 'test 4', 'sdfghjkj', '', '2018-03-03 21:43:30', 'open'),
-(2, 'dfghj', 'sdfghkjlk;', '', '2018-03-03 21:43:30', 'open'),
-(3, 'sdsfghjkl;lkjhgfd', 'fgfhjlkjhgfds', '', '2018-03-03 21:43:30', 'open');
+INSERT INTO `todos` (`id`, `name`, `description`, `user_id`, `create_date`, `status`, `priority`) VALUES
+(1, 'test 4', 'sdfghjkj', '', '2018-03-03 21:43:30', 'open', 'high'),
+(2, 'dfghj', 'sdfghkjlk;', '', '2018-03-03 21:43:30', 'open', 'high'),
+(3, 'sdsfghjkl;lkjhgfd', 'fgfhjlkjhgfds', '', '2018-03-03 21:43:30', 'open', 'high'),
+(4, 'wdefrgth', 'dfdghjkj', '', '2018-03-03 21:57:10', 'open', 'high'),
+(5, 'test', 'this was a test', 'ramesh12', '2018-03-04 09:48:30', 'open', 'medium'),
+(6, 'test 2', 'jchvkj;khcgx', 'ramesh12', '2018-03-04 09:58:21', 'open', 'low'),
+(7, 'kill viraj ', 'gxghkjk jbhkfbg   udbkvbuygjhde  jbbhg', 'ramesh12', '2018-03-04 09:58:44', 'open', 'high'),
+(8, 'wejk.kkjhggf', 'ghjb,mbnvcxdxfcvbnm', 'ramesh12', '2018-03-04 09:58:57', 'open', 'medium'),
+(9, 'sfsdhgjh', 'dfgfhgjlkjhg', 'ramesh12', '2018-03-04 10:08:16', 'open', 'medium'),
+(10, 'gfhgjhkjklkjhg', 'dgfghjkjljhg', 'ramesh12', '2018-03-04 10:08:20', 'open', 'None'),
+(11, 'dfghjkjj', 'sjhkjhgf', 'ramesh12', '2018-03-04 10:08:24', 'open', 'high');
 
 -- --------------------------------------------------------
 
@@ -463,11 +513,18 @@ CREATE TABLE `users_details` (
 INSERT INTO `users_details` (`user_id`, `password`, `security_ques`, `security_ans`, `user_type`, `status`) VALUES
 ('2010bca20', 'Suresh@12', 'favourite teacher', 'heena', 'student', 'active'),
 ('admin', 'admin', 'favourite teacher', 'beena', 'admin', 'active'),
-('ramesh12', 'ramesh@123', 'favourite teacher', 'geeta', 'faculty', 'active');
+('ramesh12', 'ramesh@123', 'favourite teacher', 'geeta', 'faculty', 'active'),
+('viraj12', 'viraj@123', 'favourite teacher', 'beena', 'faculty', 'active');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `academic_year`
+--
+ALTER TABLE `academic_year`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `assignment`
@@ -526,7 +583,8 @@ ALTER TABLE `faculty_leaves`
 ALTER TABLE `faculty_subjects`
   ADD PRIMARY KEY (`id`),
   ADD KEY `faculty_id` (`faculty_id`),
-  ADD KEY `subject_id` (`subject_id`);
+  ADD KEY `subject_id` (`subject_id`),
+  ADD KEY `faculty_subjects_ibfk_3` (`academic_id`);
 
 --
 -- Indexes for table `gallery`
@@ -603,6 +661,11 @@ ALTER TABLE `users_details`
 --
 
 --
+-- AUTO_INCREMENT for table `academic_year`
+--
+ALTER TABLE `academic_year`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
@@ -611,7 +674,7 @@ ALTER TABLE `assignment`
 -- AUTO_INCREMENT for table `course_details`
 --
 ALTER TABLE `course_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `criteria_details`
 --
@@ -636,12 +699,12 @@ ALTER TABLE `faculty_criteria_details`
 -- AUTO_INCREMENT for table `faculty_leaves`
 --
 ALTER TABLE `faculty_leaves`
-  MODIFY `faculty_leaveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `faculty_leaveid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `faculty_subjects`
 --
 ALTER TABLE `faculty_subjects`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `gallery`
 --
@@ -661,12 +724,12 @@ ALTER TABLE `lecture_report`
 -- AUTO_INCREMENT for table `semester_details`
 --
 ALTER TABLE `semester_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `stream_details`
 --
 ALTER TABLE `stream_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `student_criteria_details`
 --
@@ -676,12 +739,12 @@ ALTER TABLE `student_criteria_details`
 -- AUTO_INCREMENT for table `subjects_details`
 --
 ALTER TABLE `subjects_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `todos`
 --
 ALTER TABLE `todos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --
@@ -710,7 +773,8 @@ ALTER TABLE `faculty_details`
 --
 ALTER TABLE `faculty_subjects`
   ADD CONSTRAINT `faculty_subjects_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_details` (`faculty_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `faculty_subjects_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `faculty_subjects_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `faculty_subjects_ibfk_3` FOREIGN KEY (`academic_id`) REFERENCES `academic_year` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `semester_details`
